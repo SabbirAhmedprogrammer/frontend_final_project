@@ -1,0 +1,19 @@
+<form #locationForm="ngForm" (ngSubmit)="search(locationForm)">
+
+    <label for="locationText" class="label">Score</label>
+    <input type="text" class="input" id="locationText" name="locationText" placeholder="Enter City, State" ngModel />
+    <button class="label button">S e a r c h</button>
+</form>
+
+<ul>
+    <li *ngFor="let item of allJokes; index as i">
+        <p class="jokes">{{item.prompt}}</p>
+        <p class="jokes">{{item.answer}}</p>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let item of restaurants">
+        <p>{{item.name}}</p>
+    </li>
+</ul>
