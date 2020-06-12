@@ -12,6 +12,7 @@ export class JokesComponent implements OnInit {
 
   allJokes: any = [];
   restaurants: any = [];
+  activities: any;
 
 
   constructor(private service: DatenightService, private router: Router, private route: ActivatedRoute) { }
@@ -71,5 +72,14 @@ export class JokesComponent implements OnInit {
     form.reset();
   }
 
+  getActivities() {
+    this.route.queryParams.subscribe(response => {
+      console.log(response);
+      this.service.getActivities(response.q).subscribe(activityResponse => {
+        console.log(activityResponse);
+        this.activities = activityResponse.candidates;
+      });
+    });
+  }
 
 }

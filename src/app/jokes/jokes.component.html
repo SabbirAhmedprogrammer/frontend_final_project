@@ -17,3 +17,12 @@
         <p>{{item.name}}</p>
     </li>
 </ul>
+
+<ul>
+    <li *ngFor="let activity of activities">
+        <p>{{activity.attributes.PlaceName}}</p>
+        <p>{{activity.attributes.Place_addr}}</p>
+        <p>{{activity.attributes.City}}</p>
+        <p>{{activity.attributes.Region}}</p>
+    </li>
+</ul>

@@ -8,6 +8,7 @@ export class DatenightService {
   apiURL: string = "http://localhost:3000";
   headerApiKey: string = "a436b440d3msh9ac46586b778627p187c36jsn4338256144d4";
   headerHost: string = "tripadvisor1.p.rapidapi.com";
+  activitiesURL: string = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates";
   constructor(private http: HttpClient) { }
 
   //backend to get the jokes from pgAdmin
@@ -45,6 +46,18 @@ export class DatenightService {
         }
       }
     )
+  }
+
+
+  getActivities(keywords = "parks detroit MI"): any {
+    return this.http.get(this.activitiesURL, {
+      params: {
+        singleLine: keywords,
+        outFeilds: "PlaceName%2CPlace_Addr%2CCity%2CRegion",
+        category: "POI",
+        f: "json"
+      }
+    })
   }
 
 }
