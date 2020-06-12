@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DatenightService {
-  
+
   apiURL: string = 'http://localhost:3000';
   headerApiKey: string = '';
   //move into headerApiKey when needed for testing, to keep it in use longer
@@ -14,9 +14,9 @@ export class DatenightService {
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   // beerKey: string = 'b904e3cf40aa84a291fe8608be20c44f';
   // beerURL: string = 'https://sandbox-api.brewerydb.com/v2/beer/random';
-activitiesURL: string = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates";
-  constructor(private http: HttpClient) {}
-getActivities(keywords = "Beaches Port Huron Michigan"): any {
+  activitiesURL: string = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates";
+  constructor(private http: HttpClient) { }
+  getActivities(keywords = "Beaches Port Huron Michigan"): any {
     return this.http.get(this.activitiesURL, {
       params: {
         singleLine: keywords,
@@ -31,6 +31,14 @@ getActivities(keywords = "Beaches Port Huron Michigan"): any {
   //backend to get the jokes from pgAdmin
   getAllJokes(): any {
     return this.http.get(`${this.apiURL}/jokes`);
+  }
+
+  getAllIntimate(): any {
+    return this.http.get(`${this.apiURL}/intimate`);
+  }
+
+  getAllTrivia(): any {
+    return this.http.get(`${this.apiURL}/trivia`);
   }
 
   getFood(locationID: string): any {
