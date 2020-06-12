@@ -4,12 +4,30 @@
     background-color: lightgreen;
 }
 
-.movies{
-    border:solid black 1px;
-    background-color:lightblue
-}
-
 .restaurants {
     border:solid black 1px;
     background-color:lightgoldenrodyellow;
+}
+
+.movies-container{
+    border:solid black 1px;
+    background-color:lightblue;
+    display:flex;
+    flex-wrap:wrap;
+
+}
+
+.movie{
+    width:20%;
+    border:1px solid blue;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.movie-poster{
+    height:200px;
+    width:150px;
 }

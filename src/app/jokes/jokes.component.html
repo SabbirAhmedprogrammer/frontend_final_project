@@ -12,9 +12,11 @@
     </li>
 </ul>
 
-<ul class="movies">
-    <li *ngFor="let movie of moviesList; index as i">
+<ul class="movies-container">
+    <li *ngFor="let movie of moviesList; index as i" class="movie">
+        <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="movie poster" class="movie-poster" />
         <p>{{movie.title}}</p>
+        <p>{{movie.overview}}</p>
     </li>
 </ul>
 
