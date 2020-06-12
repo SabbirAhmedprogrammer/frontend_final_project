@@ -6,63 +6,60 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-jokes',
   templateUrl: './jokes.component.html',
-  styleUrls: ['./jokes.component.css']
+  styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
-
   allJokes: any;
   restaurants: any;
   moviesList: any;
   beer: any;
 
-  constructor(private service: DatenightService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private service: DatenightService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentMovies();
     this.getAllJokes();
+    this.getBeer();
 
     //looks at url (the city defined from search)
 
-    this.route.queryParams.subscribe(response => {
-      let location = response.city
+    this.route.queryParams.subscribe((response) => {
+      let location = response.city;
       this.service.getLocation(location).subscribe((response) => {
         console.log(response);
         let locationID = response.data[0].result_object.location_id;
         console.log(locationID);
         this.service.getFood(locationID).subscribe((response) => {
-
           console.log(response);
           this.restaurants = response.data;
-        })
-
-      })
-
-    })
+        });
+      });
+    });
   }
 
   getAllJokes() {
     this.service.getAllJokes().subscribe((response) => {
       this.allJokes = response;
-      console.log(this.allJokes)
-    })
+      console.log(this.allJokes);
+    });
   }
-
-
 
   getCurrentMovies() {
     this.service.getCurrentMovies().subscribe((response) => {
-      console.log("sandwich top");
+      console.log('sandwich top');
       console.log(response);
-      console.log("sandwich bottom");
-      this.moviesList = response.results
-    })
+      console.log('sandwich bottom');
+      this.moviesList = response.results;
+    });
   }
 
-
-
   search(form: NgForm) {
-    this.router.navigate(["search"], {
-      queryParams: { city: form.value.locationText }
+    this.router.navigate(['search'], {
+      queryParams: { city: form.value.locationText },
     });
     form.reset();
   }
@@ -73,6 +70,4 @@ export class JokesComponent implements OnInit {
       console.log(response);
     });
   }
-
-
 }
