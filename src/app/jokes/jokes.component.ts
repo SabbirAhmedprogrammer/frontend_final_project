@@ -6,75 +6,73 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-jokes',
   templateUrl: './jokes.component.html',
-  styleUrls: ['./jokes.component.css']
+  styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
+  allJokes: any;
+  restaurants: any;
+  moviesList: any;
+  beer: any;
 
-  allJokes: any = [];
-  restaurants: any = [];
-  activities: any;
-
-
-  constructor(private service: DatenightService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private service: DatenightService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.getAllItems();
-    // this.getFood();
-    // this.getLocation();
+    this.getCurrentMovies();
+    this.getAllJokes();
+    this.getBeer();
+
     //looks at url (the city defined from search)
-    this.route.queryParams.subscribe(response => {
-      let location = response.city
+
+    this.route.queryParams.subscribe((response) => {
+      let location = response.city;
       this.service.getLocation(location).subscribe((response) => {
         console.log(response);
         let locationID = response.data[0].result_object.location_id;
         console.log(locationID);
         this.service.getFood(locationID).subscribe((response) => {
-          // this.allFood = response.data;
           console.log(response);
           this.restaurants = response.data;
-        })
-
-      })
-
-    })
+        });
+      });
+    });
   }
 
-  getAllItems() {
-    this.service.getAllItems().subscribe((response) => {
+  getAllJokes() {
+    this.service.getAllJokes().subscribe((response) => {
       this.allJokes = response;
-      console.log(this.allJokes)
-    })
 
-    this.getActivities();
+      console.log(this.allJokes);
+    });
+this.getActivities();
   }
 
-  // getLocation(locationString: string) {
-  //   this.service.getLocation(locationString).subscribe((response) => {
-  //     //this gives me the exact location id, which is then used to find the restaurants in that area. Need to tie location id 
-  //     //to be a result of user input in a form. User types location, other parameters are filled, and this function
-  //     //must then use that to return the id using the dot notation below
-  //     this.allLocation = response.data[0].result_object.location_id;
-  //     console.log(this.allLocation)
-  //   })
-  // }
-
-  // getFood(locationID: string) {
-  //   this.service.getFood(locationID).subscribe((response) => {
-  //     this.allFood = response.data;
-  //     console.log(this.allFood)
-  //   })
-  // }
-
-
+  getCurrentMovies() {
+    this.service.getCurrentMovies().subscribe((response) => {
+      console.log('sandwich top');
+      console.log(response);
+      console.log('sandwich bottom');
+      this.moviesList = response.results;
+    });
+  }
 
   search(form: NgForm) {
-    this.router.navigate(["search"], {
-      queryParams: { city: form.value.locationText }
+    this.router.navigate(['search'], {
+      queryParams: { city: form.value.locationText },
     });
     form.reset();
   }
+  getBeer(): any {
+    this.service.getBeer().subscribe((response) => {
+      this.beer = response;
+      console.log(response);
+    });
+  }
 
-  getActivities() {
+ getActivities() {
     this.route.queryParams.subscribe(response => {
       console.log(response);
       this.service.getActivities(response.keywords).subscribe(activityResponse => {
