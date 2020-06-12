@@ -10,6 +10,17 @@ export class DatenightService {
   headerHost: string = "tripadvisor1.p.rapidapi.com";
   activitiesURL: string = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates";
   constructor(private http: HttpClient) { }
+  getActivities(keywords = "Beaches Port Huron Michigan"): any {
+    return this.http.get(this.activitiesURL, {
+      params: {
+        singleLine: keywords,
+        outFields: "PlaceName, Place_Addr, City, Region",
+        category: "POI",
+        forStorage: "false",
+        f: "json",
+      }
+    })
+  }
 
   //backend to get the jokes from pgAdmin
   getAllItems(): any {
@@ -49,15 +60,6 @@ export class DatenightService {
   }
 
 
-  getActivities(keywords = "parks detroit MI"): any {
-    return this.http.get(this.activitiesURL, {
-      params: {
-        singleLine: keywords,
-        outFeilds: "PlaceName%2CPlace_Addr%2CCity%2CRegion",
-        category: "POI",
-        f: "json"
-      }
-    })
-  }
+
 
 }

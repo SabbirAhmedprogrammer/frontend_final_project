@@ -44,6 +44,8 @@ export class JokesComponent implements OnInit {
       this.allJokes = response;
       console.log(this.allJokes)
     })
+
+    this.getActivities();
   }
 
   // getLocation(locationString: string) {
@@ -75,7 +77,7 @@ export class JokesComponent implements OnInit {
   getActivities() {
     this.route.queryParams.subscribe(response => {
       console.log(response);
-      this.service.getActivities(response.q).subscribe(activityResponse => {
+      this.service.getActivities(response.keywords).subscribe(activityResponse => {
         console.log(activityResponse);
         this.activities = activityResponse.candidates;
       });
