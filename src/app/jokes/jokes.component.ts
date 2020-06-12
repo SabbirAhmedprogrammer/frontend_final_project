@@ -12,11 +12,13 @@ export class JokesComponent implements OnInit {
 
   allJokes: any = [];
   restaurants: any = [];
+  moviesList: any = [];
 
 
   constructor(private service: DatenightService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getCurrentMovies();
     this.getAllItems();
     // this.getFood();
     // this.getLocation();
@@ -61,6 +63,15 @@ export class JokesComponent implements OnInit {
   //     console.log(this.allFood)
   //   })
   // }
+
+  getCurrentMovies() {
+    this.service.getCurrentMovies().subscribe((response) => {
+      console.log("sandwich top");
+      console.log(response);
+      console.log("sandwich bottom");
+      this.moviesList = response.results
+    })
+  }
 
 
 

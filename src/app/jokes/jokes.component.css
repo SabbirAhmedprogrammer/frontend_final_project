@@ -1,4 +1,15 @@
 .jokes{
     color:red;
     border:solid 1px black;
+    background-color: lightgreen;
+}
+
+.movies{
+    border:solid black 1px;
+    background-color:lightblue
+}
+
+.restaurants {
+    border:solid black 1px;
+    background-color:lightgoldenrodyellow;
 }
