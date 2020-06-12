@@ -6,13 +6,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DatenightService {
   apiURL: string = "http://localhost:3000";
-  headerApiKey: string = "a436b440d3msh9ac46586b778627p187c36jsn4338256144d4";
+  headerApiKey: string = "";
+  //move into headerApiKey when needed for testing, to keep it in use longer
+  //headerApiKey :  "1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658"
   headerHost: string = "tripadvisor1.p.rapidapi.com";
   movieAPI: string = "9de00a3aded0074e4a583ad4a86ef37b";
+  beerKey: string = 'b904e3cf40aa84a291fe8608be20c44f';
+  beerURL: string = 'https://sandbox-api.brewerydb.com/v2/beer/random';
   constructor(private http: HttpClient) { }
 
   //backend to get the jokes from pgAdmin
-  getAllItems(): any {
+  getAllJokes(): any {
     return this.http.get(`${this.apiURL}/jokes`)
   }
 
@@ -58,6 +62,14 @@ export class DatenightService {
         }
       }
     )
+  }
+
+  getBeer(): any {
+    return this.http.get(this.beerURL, {
+      params: {
+        key: this.beerKey,
+      },
+    });
   }
 
 }
