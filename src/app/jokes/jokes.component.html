@@ -42,3 +42,18 @@
   <h3>{{ beer.data.abv }}</h3>
   <p>{{ beer.data.style.description }}</p>
 </div>
+
+<ul>
+    <li *ngFor="let item of restaurants">
+        <p>{{item.name}}</p>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let activity of activities">
+        <p>{{activity.attributes.PlaceName}}</p>
+        <p>{{activity.attributes.Place_Addr}}</p>
+        <p>{{activity.attributes.City}}</p>
+        <p>{{activity.attributes.Region}}</p>
+    </li>
+</ul>

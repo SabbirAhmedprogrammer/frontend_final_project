@@ -44,8 +44,10 @@ export class JokesComponent implements OnInit {
   getAllJokes() {
     this.service.getAllJokes().subscribe((response) => {
       this.allJokes = response;
+
       console.log(this.allJokes);
     });
+this.getActivities();
   }
 
   getCurrentMovies() {
@@ -63,11 +65,21 @@ export class JokesComponent implements OnInit {
     });
     form.reset();
   }
-
   getBeer(): any {
     this.service.getBeer().subscribe((response) => {
       this.beer = response;
       console.log(response);
     });
   }
+
+ getActivities() {
+    this.route.queryParams.subscribe(response => {
+      console.log(response);
+      this.service.getActivities(response.keywords).subscribe(activityResponse => {
+        console.log(activityResponse);
+        this.activities = activityResponse.candidates;
+      });
+    });
+  }
+
 }
