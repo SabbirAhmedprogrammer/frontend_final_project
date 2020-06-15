@@ -15,7 +15,7 @@ export class DatenightService {
   // beerURL: string = 'https://sandbox-api.brewerydb.com/v2/beer/random';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {
@@ -29,8 +29,8 @@ export class DatenightService {
   }
 
   //backend to get the jokes from pgAdmin
-  getAllJokes(): any {
-    return this.http.get(`${this.apiURL}/jokes`);
+  getRandomJoke(): any {
+    return this.http.get(`${this.apiURL}/randomjoke`);
   }
 
   getAllIntimate(): any {

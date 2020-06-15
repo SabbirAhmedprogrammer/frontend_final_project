@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
-  allJokes: any;
+  randomJoke: any;
   allIntimate: any;
   allTrivia: any;
   restaurants: any;
@@ -21,12 +21,14 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCurrentMovies();
-    this.getAllJokes();
+    this.getRandomJoke();
     this.getBeer();
+    this.getAllIntimate();
+    this.getAllTrivia();
     // this.getActivities();
 
     //looks at url (the city defined from search)
@@ -45,11 +47,11 @@ export class JokesComponent implements OnInit {
     });
   }
 
-  getAllJokes() {
-    this.service.getAllJokes().subscribe((response) => {
-      this.allJokes = response;
+  getRandomJoke() {
+    this.service.getRandomJoke().subscribe((response) => {
+      this.randomJoke = response;
 
-      console.log(this.allJokes);
+      console.log(this.randomJoke);
     });
   }
 
@@ -63,7 +65,7 @@ export class JokesComponent implements OnInit {
 
   getAllTrivia() {
     this.service.getAllTrivia().subscribe((response) => {
-      this.allJokes = response;
+      this.allTrivia = response;
 
       console.log(this.allTrivia);
     });
