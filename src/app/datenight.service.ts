@@ -5,27 +5,27 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class DatenightService {
-
   apiURL: string = 'http://localhost:3000';
-  headerApiKey: string = '';
+  headerApiKey: string = '1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658';
   //move into headerApiKey when needed for testing, to keep it in use longer
-  //headerApiKey :  "1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658"
+  // headerApiKey :  "1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   // beerKey: string = 'b904e3cf40aa84a291fe8608be20c44f';
   // beerURL: string = 'https://sandbox-api.brewerydb.com/v2/beer/random';
-  activitiesURL: string = "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates";
-  constructor(private http: HttpClient) { }
-  getActivities(keywords = "Beaches Port Huron Michigan"): any {
+  activitiesURL: string =
+    'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
+  constructor(private http: HttpClient) {}
+  getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {
         singleLine: keywords,
-        outFields: "PlaceName, Place_Addr, City, Region",
-        category: "POI",
-        forStorage: "false",
-        f: "json",
-      }
-    })
+        outFields: 'PlaceName, Place_Addr, City, Region',
+        category: 'POI',
+        forStorage: 'false',
+        f: 'json',
+      },
+    });
   }
 
   //backend to get the jokes from pgAdmin

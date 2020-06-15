@@ -16,17 +16,18 @@ export class JokesComponent implements OnInit {
   moviesList: any;
   beer: any;
   activities: any;
+  location: any;
   constructor(
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentMovies();
     this.getAllJokes();
     this.getBeer();
-    this.getActivities();
+    // this.getActivities();
 
     //looks at url (the city defined from search)
 
@@ -50,7 +51,6 @@ export class JokesComponent implements OnInit {
 
       console.log(this.allJokes);
     });
-
   }
 
   getAllIntimate() {
@@ -59,7 +59,6 @@ export class JokesComponent implements OnInit {
 
       console.log(this.allIntimate);
     });
-
   }
 
   getAllTrivia() {
@@ -68,7 +67,6 @@ export class JokesComponent implements OnInit {
 
       console.log(this.allTrivia);
     });
-
   }
 
   getCurrentMovies() {
@@ -84,6 +82,7 @@ export class JokesComponent implements OnInit {
     this.router.navigate(['search'], {
       queryParams: { city: form.value.locationText },
     });
+    this.location = form.value.locationText;
     form.reset();
   }
   getBeer(): any {
@@ -93,14 +92,15 @@ export class JokesComponent implements OnInit {
     });
   }
 
-  getActivities() {
-    this.route.queryParams.subscribe(response => {
-      console.log(response);
-      this.service.getActivities(response.keywords).subscribe(activityResponse => {
+  getActivities(form: NgForm) {
+    // this.route.queryParams.subscribe(response => {
+    //   console.log(response);
+    this.service
+      .getActivities(`${form.value.activities} ${this.location}`)
+      .subscribe((activityResponse) => {
         console.log(activityResponse);
         this.activities = activityResponse.candidates;
       });
-    });
+    // });
   }
-
 }

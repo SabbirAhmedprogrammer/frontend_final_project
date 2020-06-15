@@ -1,48 +1,65 @@
 <form #locationForm="ngForm" (ngSubmit)="search(locationForm)">
-    <label for="locationText" class="label">Score</label>
-    <input type="text" class="input" id="locationText" name="locationText" placeholder="Enter City, State" ngModel />
-    <button class="label button">S e a r c h</button>
+  <label for="locationText" class="label">Where is your date?</label>
+  <input
+    type="text"
+    class="input"
+    id="locationText"
+    name="locationText"
+    placeholder="Enter City, State"
+    ngModel
+  />
+  <button class="label button">S e a r c h</button>
 </form>
 
 <ul class="jokes">
-    <li *ngFor="let item of allJokes; index as i">
-        <p>{{ item.prompt }}</p>
-        <p>{{ item.answer }}</p>
-    </li>
+  <li *ngFor="let item of allJokes; index as i">
+    <p>{{ item.prompt }}</p>
+    <p>{{ item.answer }}</p>
+  </li>
 </ul>
 
 <ul class="movies-container">
-    <li *ngFor="let movie of moviesList; index as i" class="movie">
-        <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="movie poster" class="movie-poster" />
-        <p>{{ movie.title }}</p>
-        <p>{{ movie.overview }}</p>
-    </li>
+  <li *ngFor="let movie of moviesList; index as i" class="movie">
+    <img
+      src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+      alt="movie poster"
+      class="movie-poster"
+    />
+    <p>{{ movie.title }}</p>
+    <p>{{ movie.overview }}</p>
+  </li>
 </ul>
 
 <ul class="restaurants">
-    <li *ngFor="let item of restaurants">
-        <p>{{ item.name }}</p>
-    </li>
+  <li *ngFor="let item of restaurants">
+    <p>{{ item.name }}</p>
+  </li>
 </ul>
 
 <div>
-    <h1>{{ beer?.data.name }}</h1>
-    <h2>{{ beer?.data.style.name }}</h2>
-    <h3>{{ beer?.data.abv }}</h3>
-    <p>{{ beer?.data.style.description }}</p>
+  <h1>{{ beer?.data.name }}</h1>
+  <h2>{{ beer?.data.style.name }}</h2>
+  <h3>{{ beer?.data.abv }}</h3>
+  <p>{{ beer?.data.style.description }}</p>
 </div>
 
-<ul>
-    <li *ngFor="let item of restaurants">
-        <p>{{item.name}}</p>
-    </li>
-</ul>
-
-<ul>
+<div>
+  <form #activityForm="ngForm" (ngSubmit)="getActivities(activityForm)">
+    <label for="activities">Select an activity</label>
+    <select name="activities" id="activities" ngModel>
+      <option value="parks">Parks</option>
+      <option value="beach">Beach</option>
+      <option value="campground">Campground</option>
+      <option value=""></option>
+    </select>
+    <button>Enter</button>
+  </form>
+  <ul>
     <li *ngFor="let activity of activities">
-        <p>{{activity.attributes.PlaceName}}</p>
-        <p>{{activity.attributes.Place_Addr}}</p>
-        <p>{{activity.attributes.City}}</p>
-        <p>{{activity.attributes.Region}}</p>
+      <p>{{ activity.attributes.PlaceName }}</p>
+      <p>{{ activity.attributes.Place_Addr }}</p>
+      <p>{{ activity.attributes.City }}</p>
+      <p>{{ activity.attributes.Region }}</p>
     </li>
-</ul>
+  </ul>
+</div>
