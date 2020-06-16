@@ -29,8 +29,8 @@ export class DatenightService {
   }
 
   //backend to get the jokes from pgAdmin
-  getRandomJoke(): any {
-    return this.http.get(`${this.apiURL}/randomjoke`);
+  getAllJokes(): any {
+    return this.http.get(`${this.apiURL}/jokes`);
   }
 
   getAllIntimate(): any {

@@ -4,15 +4,27 @@
     <button class="label button">S e a r c h</button>
 </form>
 
+
+
+<form #jokeForm="ngForm" (ngSubmit)="getAllJokes(jokeForm)">
+    <label for="jokes">Adult Joke?</label>
+    <select name="jokes" id="jokes" ngModel>
+        <option value="false" selected="selected">No</option>
+        <option value="true">Yes</option>
+    </select>
+    <button>Get me a Joke!</button>
+</form>
+
 <div>
     <ul class="jokes">
         <li>
-            <p>{{ randomJoke.prompt }}</p>
-            <p>{{ randomJoke.answer }}</p>
+            <p>{{ randomJoke?.prompt }}</p>
+            <p>{{ randomJoke?.answer }}</p>
         </li>
     </ul>
-    <button>Generate Joke</button>
+
 </div>
+
 
 <ul>
     <li *ngFor="let trivia of allTrivia">

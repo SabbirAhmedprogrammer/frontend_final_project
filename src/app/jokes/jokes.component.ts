@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
+  dirtyVariable: any;
+  allJokes: any;
   randomJoke: any;
   allIntimate: any;
   allTrivia: any;
@@ -25,10 +27,11 @@ export class JokesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCurrentMovies();
-    this.getRandomJoke();
+    // this.getRandomJoke();
     this.getBeer();
     this.getAllIntimate();
     this.getAllTrivia();
+    // this.getAllJokes();
     // this.getActivities();
 
     //looks at url (the city defined from search)
@@ -47,13 +50,23 @@ export class JokesComponent implements OnInit {
     });
   }
 
-  getRandomJoke() {
-    this.service.getRandomJoke().subscribe((response) => {
-      this.randomJoke = response;
-
-      console.log(this.randomJoke);
-    });
+  getAllJokes(form: NgForm) {
+    this.service.getAllJokes().subscribe((response) => {
+      this.allJokes = response;
+      if (form.value.jokes === "true") {
+        this.dirtyVariable = this.allJokes.filter(joke => {
+          return (joke.adult === true);
+        });
+      } else {
+        this.dirtyVariable = this.allJokes.filter(joke => {
+          return (joke.adult === false)
+        })
+      }
+      this.randomJoke = this.dirtyVariable[Math.floor(Math.random() * this.dirtyVariable.length)]
+    })
   }
+
+
 
   getAllIntimate() {
     this.service.getAllIntimate().subscribe((response) => {
