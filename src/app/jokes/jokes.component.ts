@@ -19,7 +19,9 @@ export class JokesComponent implements OnInit {
   filteredTrivia: any;
   randomTrivia: any;
   restaurants: any;
+  showRestaurantList: boolean = false;
   moviesList: any;
+  showMovieList: boolean = false;
   beer: any;
   show: boolean;
   activities: any;
@@ -28,7 +30,7 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCurrentMovies();
@@ -131,6 +133,10 @@ export class JokesComponent implements OnInit {
     });
   }
 
+  showMovies() {
+    this.showMovieList = !this.showMovieList;
+  }
+
   search(form: NgForm) {
     this.router.navigate(['search'], {
       queryParams: { city: form.value.locationText },
@@ -138,6 +144,11 @@ export class JokesComponent implements OnInit {
     this.location = form.value.locationText;
     form.reset();
   }
+
+  showRestaurants() {
+    this.showRestaurantList = !this.showRestaurantList;
+  }
+
   getBeer(): any {
     this.service.getBeer().subscribe((response) => {
       this.beer = response;
