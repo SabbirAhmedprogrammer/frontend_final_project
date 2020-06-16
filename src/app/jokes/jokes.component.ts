@@ -13,25 +13,28 @@ export class JokesComponent implements OnInit {
   allJokes: any;
   randomJoke: any;
   allIntimate: any;
+  filteredIntimate: any;
+  randomIntimate: any;
   allTrivia: any;
   filteredTrivia: any;
   randomTrivia: any;
   restaurants: any;
   moviesList: any;
   beer: any;
+  show: boolean;
   activities: any;
   location: any;
   constructor(
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentMovies();
     // this.getRandomJoke();
-    this.getBeer();
-    this.getAllIntimate();
+    // this.getBeer();
+    // this.getAllIntimate();
     // this.getAllTrivia();
     // this.getAllJokes();
     // this.getActivities();
@@ -55,51 +58,67 @@ export class JokesComponent implements OnInit {
   getAllJokes(form: NgForm) {
     this.service.getAllJokes().subscribe((response) => {
       this.allJokes = response;
-      if (form.value.jokes === "true") {
-        this.dirtyVariable = this.allJokes.filter(joke => {
-          return (joke.adult === true);
+      if (form.value.jokes === 'true') {
+        this.dirtyVariable = this.allJokes.filter((joke) => {
+          return joke.adult === true;
         });
       } else {
-        this.dirtyVariable = this.allJokes.filter(joke => {
-          return (joke.adult === false)
-        })
+        this.dirtyVariable = this.allJokes.filter((joke) => {
+          return joke.adult === false;
+        });
       }
-      this.randomJoke = this.dirtyVariable[Math.floor(Math.random() * this.dirtyVariable.length)]
-    })
+      this.randomJoke = this.dirtyVariable[
+        Math.floor(Math.random() * this.dirtyVariable.length)
+      ];
+    });
   }
 
-
-
-  getAllIntimate() {
+  getAllIntimate(form: NgForm) {
     this.service.getAllIntimate().subscribe((response) => {
       this.allIntimate = response;
-
       console.log(this.allIntimate);
+      if (form.value.intimate === 'level1') {
+        this.filteredIntimate = this.allIntimate.filter((level) => {
+          return level.intimacy_level === 1;
+        });
+      } else if (form.value.intimate === 'level2') {
+        this.filteredIntimate = this.allIntimate.filter((level) => {
+          return level.intimacy_level === 2;
+        });
+      } else if (form.value.intimate === 'level3') {
+        this.filteredIntimate = this.allIntimate.filter((level) => {
+          return level.intimacy_level === 3;
+        });
+      }
+      this.randomIntimate = this.filteredIntimate[
+        Math.floor(Math.random() * this.filteredIntimate.length)
+      ];
     });
   }
 
   getAllTrivia(form: NgForm) {
     this.service.getAllTrivia().subscribe((response) => {
       this.allTrivia = response;
-      if (form.value.trivia === "miscellaneous") {
-        this.filteredTrivia = this.allTrivia.filter(trivia => {
-          return (trivia.category === "Miscellaneous");
+      if (form.value.trivia === 'miscellaneous') {
+        this.filteredTrivia = this.allTrivia.filter((trivia) => {
+          return trivia.category === 'Miscellaneous';
         });
-      } else if (form.value.trivia === "history") {
-        this.filteredTrivia = this.allTrivia.filter(trivia => {
-          return (trivia.category === "History")
-        })
-      } else if (form.value.trivia === "geography") {
-        this.filteredTrivia = this.allTrivia.filter(trivia => {
-          return (trivia.category === "Geography")
-        })
-      } else if (form.value.trivia === "science") {
-        this.filteredTrivia = this.allTrivia.filter(trivia => {
-          return (trivia.category === "Science Facts")
-        })
+      } else if (form.value.trivia === 'history') {
+        this.filteredTrivia = this.allTrivia.filter((trivia) => {
+          return trivia.category === 'History';
+        });
+      } else if (form.value.trivia === 'geography') {
+        this.filteredTrivia = this.allTrivia.filter((trivia) => {
+          return trivia.category === 'Geography';
+        });
+      } else if (form.value.trivia === 'science') {
+        this.filteredTrivia = this.allTrivia.filter((trivia) => {
+          return trivia.category === 'Science Facts';
+        });
       }
-      this.randomTrivia = this.filteredTrivia[Math.floor(Math.random() * this.filteredTrivia.length)]
-
+      this.randomTrivia = this.filteredTrivia[
+        Math.floor(Math.random() * this.filteredTrivia.length)
+      ];
     });
   }
 
@@ -124,7 +143,13 @@ export class JokesComponent implements OnInit {
       this.beer = response;
       console.log(response);
     });
+    this.show = true;
   }
+  hideBeer(): any {
+    this.show = false;
+  }
+
+  // getBeerOnClick
 
   getActivities(form: NgForm) {
     // this.route.queryParams.subscribe(response => {
