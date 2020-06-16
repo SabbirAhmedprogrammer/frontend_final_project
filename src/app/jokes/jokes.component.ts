@@ -42,7 +42,7 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getCurrentMovies();
@@ -75,6 +75,9 @@ export class JokesComponent implements OnInit {
 
   showJokes() {
     this.showJokeForm = !this.showJokeForm;
+    this.showIntimateForm = false;
+    this.showTriviaForm = false;
+
   }
 
   getAllJokes(form: NgForm) {
@@ -96,6 +99,8 @@ export class JokesComponent implements OnInit {
   }
   showPersonal() {
     this.showIntimateForm = !this.showIntimateForm;
+    this.showJokeForm = false;
+    this.showTriviaForm = false
   }
   getAllIntimate(form: NgForm) {
     this.service.getAllIntimate().subscribe((response) => {
@@ -122,6 +127,8 @@ export class JokesComponent implements OnInit {
 
   showTrivia() {
     this.showTriviaForm = !this.showTriviaForm;
+    this.showJokeForm = false;
+    this.showIntimateForm = false;
   }
 
   getAllTrivia(form: NgForm) {
@@ -191,14 +198,12 @@ export class JokesComponent implements OnInit {
   }
 
   getActivities(form: NgForm) {
-    // this.route.queryParams.subscribe(response => {
-    //   console.log(response);
     this.service
       .getActivities(`${form.value.activities} ${this.location}`)
       .subscribe((activityResponse) => {
         console.log(activityResponse);
         this.activities = activityResponse.candidates;
       });
-    // });
+    form.reset();
   }
 }
