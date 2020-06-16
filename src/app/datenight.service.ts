@@ -11,8 +11,6 @@ export class DatenightService {
   // headerApiKey :  "1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
-  // beerKey: string = 'b904e3cf40aa84a291fe8608be20c44f';
-  // beerURL: string = 'https://sandbox-api.brewerydb.com/v2/beer/random';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
   constructor(private http: HttpClient) { }
@@ -77,7 +75,6 @@ export class DatenightService {
   getCurrentMovies(): any {
     return this.http.get('https://api.themoviedb.org/3/movie/now_playing', {
       params: {
-        // query: "lansing michigan"
         api_key: this.movieAPI,
         language: 'en-US',
       },

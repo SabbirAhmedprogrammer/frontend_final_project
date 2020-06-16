@@ -46,15 +46,6 @@ export class JokesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCurrentMovies();
-    // this.getRandomJoke();
-    // this.getBeer();
-    // this.getAllIntimate();
-    // this.getAllTrivia();
-    // this.getAllJokes();
-    // this.getActivities();
-
-    //looks at url (the city defined from search)
-
     this.route.queryParams.subscribe((response) => {
       let location = response.city;
       this.service.getLocation(location).subscribe((response) => {
