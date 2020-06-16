@@ -9,28 +9,40 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
+  showIceBreakersList: boolean = false;
   dirtyVariable: any;
   allJokes: any;
   randomJoke: any;
+  showJokeForm: boolean = false;
+
   allIntimate: any;
   filteredIntimate: any;
   randomIntimate: any;
+  showIntimateForm: boolean = false;
+
   allTrivia: any;
   filteredTrivia: any;
   randomTrivia: any;
+  showTriviaForm: boolean = false;
+
   restaurants: any;
   showRestaurantList: boolean = false;
+
   moviesList: any;
   showMovieList: boolean = false;
+
   beer: any;
   show: boolean;
+
   activities: any;
+  showActivityForm: boolean = false;
+
   location: any;
   constructor(
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentMovies();
@@ -57,6 +69,14 @@ export class JokesComponent implements OnInit {
     });
   }
 
+  showIceBreakers() {
+    this.showIceBreakersList = !this.showIceBreakersList;
+  }
+
+  showJokes() {
+    this.showJokeForm = !this.showJokeForm;
+  }
+
   getAllJokes(form: NgForm) {
     this.service.getAllJokes().subscribe((response) => {
       this.allJokes = response;
@@ -74,7 +94,9 @@ export class JokesComponent implements OnInit {
       ];
     });
   }
-
+  showPersonal() {
+    this.showIntimateForm = !this.showIntimateForm;
+  }
   getAllIntimate(form: NgForm) {
     this.service.getAllIntimate().subscribe((response) => {
       this.allIntimate = response;
@@ -96,6 +118,10 @@ export class JokesComponent implements OnInit {
         Math.floor(Math.random() * this.filteredIntimate.length)
       ];
     });
+  }
+
+  showTrivia() {
+    this.showTriviaForm = !this.showTriviaForm;
   }
 
   getAllTrivia(form: NgForm) {
@@ -160,7 +186,9 @@ export class JokesComponent implements OnInit {
     this.show = false;
   }
 
-  // getBeerOnClick
+  showActivities() {
+    this.showActivityForm = !this.showActivityForm;
+  }
 
   getActivities(form: NgForm) {
     // this.route.queryParams.subscribe(response => {
