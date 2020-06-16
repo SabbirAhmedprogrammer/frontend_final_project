@@ -25,11 +25,21 @@
 
 </div>
 
+<form #triviaForm="ngForm" (ngSubmit)="getAllTrivia(triviaForm)">
+    <label for="trivia">Choose Category</label>
+    <select name="trivia" id="trivia" ngModel>
+        <option value="miscellaneous" selected>Miscellaneous</option>
+        <option value="history">History</option>
+        <option value="geography">Geography</option>
+        <option value="science">Science</option>
+    </select>
+    <button>Get Trivia</button>
+</form>
 
 <ul>
-    <li *ngFor="let trivia of allTrivia">
-        <p>{{trivia.question}}</p>
-        <p>{{trivia.answer}}</p>
+    <li>
+        <p>{{randomTrivia?.question}}</p>
+        <p>{{randomTrivia?.answer}}</p>
     </li>
 </ul>
 

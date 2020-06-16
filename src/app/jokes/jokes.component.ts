@@ -14,6 +14,8 @@ export class JokesComponent implements OnInit {
   randomJoke: any;
   allIntimate: any;
   allTrivia: any;
+  filteredTrivia: any;
+  randomTrivia: any;
   restaurants: any;
   moviesList: any;
   beer: any;
@@ -30,7 +32,7 @@ export class JokesComponent implements OnInit {
     // this.getRandomJoke();
     this.getBeer();
     this.getAllIntimate();
-    this.getAllTrivia();
+    // this.getAllTrivia();
     // this.getAllJokes();
     // this.getActivities();
 
@@ -76,11 +78,28 @@ export class JokesComponent implements OnInit {
     });
   }
 
-  getAllTrivia() {
+  getAllTrivia(form: NgForm) {
     this.service.getAllTrivia().subscribe((response) => {
       this.allTrivia = response;
+      if (form.value.trivia === "miscellaneous") {
+        this.filteredTrivia = this.allTrivia.filter(trivia => {
+          return (trivia.category === "Miscellaneous");
+        });
+      } else if (form.value.trivia === "history") {
+        this.filteredTrivia = this.allTrivia.filter(trivia => {
+          return (trivia.category === "History")
+        })
+      } else if (form.value.trivia === "geography") {
+        this.filteredTrivia = this.allTrivia.filter(trivia => {
+          return (trivia.category === "Geography")
+        })
+      } else if (form.value.trivia === "science") {
+        this.filteredTrivia = this.allTrivia.filter(trivia => {
+          return (trivia.category === "Science Facts")
+        })
+      }
+      this.randomTrivia = this.filteredTrivia[Math.floor(Math.random() * this.filteredTrivia.length)]
 
-      console.log(this.allTrivia);
     });
   }
 
