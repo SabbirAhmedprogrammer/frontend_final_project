@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DatenightService {
   apiURL: string = 'http://localhost:3000';
-  headerApiKey: string = '1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658';
+  headerApiKey: string = 'eb6650febemsh322795480b75a4ap161929jsnae89bf1de7d1';
   //move into headerApiKey when needed for testing, to keep it in use longer
-  // headerApiKey :  "1694acd709mshc148a4fae4258cap1f2fc2jsne53b98cee658"
+  // headerApiKey :  "eb6650febemsh322795480b75a4ap161929jsnae89bf1de7d1"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =

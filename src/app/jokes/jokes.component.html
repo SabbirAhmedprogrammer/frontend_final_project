@@ -15,7 +15,7 @@
     <div *ngIf="showJokeForm">
         <form #jokeForm="ngForm" (ngSubmit)="getAllJokes(jokeForm)">
             <label for="jokes">Adult Joke?</label>
-            <select name="jokes" id="jokes" ngModel>
+            <select name="jokes" id="jokes" ngModel="false">
                 <option value="false" selected="selected">No</option>
                 <option value="true">Yes</option>
             </select>
@@ -47,10 +47,13 @@
         </div>
     </div>
 
+    <!-- **************************************** -->
+    <!-- on change it will run the function, vs onSubmit which requires clicking enter or a submit button -->
+    <!-- focus must be taken away from an input field for it to consider it as a change, and then run the function defined -->
     <div *ngIf="showIntimateForm">
-        <form #intimateForm="ngForm" (ngSubmit)="getAllIntimate(intimateForm)">
+        <form #intimateForm="ngForm" (change)="getAllIntimate(intimateForm)">
             <label for="intimate">Choose Intimacy Level</label>
-            <select name="intimate" id="intimate" ngModel>
+            <select name="intimate" id="intimate" ngModel="level1">
                 <option value="level1">Level 1</option>
                 <option value="level2">Level 2</option>
                 <option value="level3">Level 3</option>
@@ -79,20 +82,22 @@
 <div>
     <button (click)="showRestaurants()">Restaurants</button>
     <ul class="restaurants" *ngIf="showRestaurantList">
-        <li *ngFor="let item of restaurants">
-            <p>{{ item.name }}</p>
+        <li *ngFor="let item of restaurantsFiltered">
+            <a href="{{item.website}}">{{item.name}}</a>
+            <p>{{ item.address }}</p>
+
         </li>
     </ul>
 </div>
 
 <div>
-    <button (click)="getBeer()">Find Craft Beer</button>
+    <button (click)="hideBeer()">Find Craft Beer</button>
     <div *ngIf="show">
         <h1>{{ beer?.data.name }}</h1>
         <h2>{{ beer?.data.style.name }}</h2>
         <h3>{{ beer?.data.abv }}</h3>
         <p>{{ beer?.data.style.description }}</p>
-        <button (click)="hideBeer()">Hide</button>
+        <button (click)="getBeer()">Hide</button>
     </div>
 </div>
 <button (click)="showActivities()">Activity</button>

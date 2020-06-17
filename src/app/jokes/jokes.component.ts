@@ -27,12 +27,13 @@ export class JokesComponent implements OnInit {
 
   restaurants: any;
   showRestaurantList: boolean = false;
+  restaurantsFiltered: any;
 
   moviesList: any;
   showMovieList: boolean = false;
 
   beer: any;
-  show: boolean;
+  show: boolean = false;
 
   activities: any;
   showActivityForm: boolean = false;
@@ -45,16 +46,18 @@ export class JokesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getBeer();
     this.getCurrentMovies();
     this.route.queryParams.subscribe((response) => {
       let location = response.city;
       this.service.getLocation(location).subscribe((response) => {
-        console.log(response);
         let locationID = response.data[0].result_object.location_id;
-        console.log(locationID);
         this.service.getFood(locationID).subscribe((response) => {
-          console.log(response);
           this.restaurants = response.data;
+          this.restaurantsFiltered = this.restaurants.filter((restaurant) => {
+            return restaurant.hasOwnProperty('name');
+          });
+          console.log(this.restaurantsFiltered);
         });
       });
     });
@@ -150,9 +153,6 @@ export class JokesComponent implements OnInit {
 
   getCurrentMovies() {
     this.service.getCurrentMovies().subscribe((response) => {
-      console.log('sandwich top');
-      console.log(response);
-      console.log('sandwich bottom');
       this.moviesList = response.results;
     });
   }
@@ -178,10 +178,10 @@ export class JokesComponent implements OnInit {
       this.beer = response;
       console.log(response);
     });
-    this.show = true;
+    // this.show = true;
   }
   hideBeer(): any {
-    this.show = false;
+    this.show = !this.show;
   }
 
   showActivities() {
