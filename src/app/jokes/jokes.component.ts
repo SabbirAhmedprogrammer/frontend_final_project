@@ -46,7 +46,7 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getBeer();
@@ -68,6 +68,10 @@ export class JokesComponent implements OnInit {
 
   showIceBreakers() {
     this.showIceBreakersList = !this.showIceBreakersList;
+    this.showMovieList = false;
+    this.showRestaurantList = false;
+    this.show = false;
+    this.showActivityForm = false;
   }
 
   showJokes() {
@@ -164,6 +168,10 @@ export class JokesComponent implements OnInit {
 
   showMovies() {
     this.showMovieList = !this.showMovieList;
+    this.showIceBreakersList = false;
+    this.showRestaurantList = false;
+    this.show = false;
+    this.showActivityForm = false;
   }
 
   search(form: NgForm) {
@@ -176,6 +184,10 @@ export class JokesComponent implements OnInit {
 
   showRestaurants() {
     this.showRestaurantList = !this.showRestaurantList;
+    this.showMovieList = false;
+    this.showIceBreakersList = false;
+    this.show = false;
+    this.showActivityForm = false;
   }
 
   getBeer(): any {
@@ -187,10 +199,18 @@ export class JokesComponent implements OnInit {
   }
   hideBeer(): any {
     this.show = !this.show;
+    this.showMovieList = false;
+    this.showRestaurantList = false;
+    this.showIceBreakersList = false;
+    this.showActivityForm = false;
   }
 
   showActivities() {
     this.showActivityForm = !this.showActivityForm;
+    this.showMovieList = false;
+    this.showRestaurantList = false;
+    this.show = false;
+    this.showIceBreakersList = false;
   }
 
   getActivities(form: NgForm) {

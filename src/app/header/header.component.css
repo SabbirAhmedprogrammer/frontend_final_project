@@ -1,0 +1,23 @@
+h1, p {
+    margin: 0;
+    padding: 0;
+} 
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.navigation{
+    background: antiquewhite;
+    width: 150px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+
+}
