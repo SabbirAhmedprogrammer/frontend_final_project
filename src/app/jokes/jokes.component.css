@@ -1,94 +1,102 @@
-.main-buttons-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
+.main-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.main-buttons{
-    width:80%;
-    font-size:1.5rem;
-    margin:10px 0;
+.main-buttons {
+  width: 90%;
+  font-size: 1.5rem;
+  margin: 10px 0;
 }
 
 /* example and testing are just to temporarily test these ideas**** */
-.example{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.example {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .location-form {
-    display:flex;
-    flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 
-.location-label{
-    font-size:1.25rem;
+.location-label {
+  font-size: 1.25rem;
 }
 
-.icebreaker-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    
+.icebreaker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.icebreaker-child{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    max-width:250px;
+.icebreaker-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 250px;
 }
 
-.joke-button{
-    align-items:flex-start;
+.joke-button {
+  align-items: flex-start;
 }
 
-.trivia-button{
-    align-items:center;
+.trivia-button {
+  align-items: center;
 }
 
-.intimate-button{
-    align-items:flex-end;
+.intimate-button {
+  align-items: flex-end;
 }
 
-.icebreaker-body{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+.icebreaker-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .icebreaker-buttons {
-    margin:0 10px;
+  margin: 0 10px;
 }
 
 .restaurants {
-    border:solid black 1px;
-    background-color:lightgoldenrodyellow;
+  list-style: none;
+  /* border: solid black 1px;
+  background-color: lightgoldenrodyellow; */
 }
 
-.movies-container{
-    border:solid black 1px;
-    background-color:lightblue;
-    display:flex;
-    flex-wrap:wrap;
-
+.movies-container {
+  /* border:solid black 1px;
+    background-color:lightblue; */
+  display: flex;
+  overflow-x: auto;
+  max-width: -webkit-fill-available;
+  padding: 0;
+  margin: 0;
+  /* flex-direction: column; */
 }
 
-.movie{
-    width:20%;
-    border:1px solid blue;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+.movie {
+  /* width: 20%;
+  /* border:1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  /* justify-content: center;
+  align-items: center; */
 }
 
+.movie-poster {
+  height: 200px;
+  width: 150px;
+}
 
-.movie-poster{
-    height:200px;
-    width:150px;
+.beer-body {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
 }
