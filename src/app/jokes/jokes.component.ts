@@ -14,16 +14,19 @@ export class JokesComponent implements OnInit {
   allJokes: any;
   randomJoke: any;
   showJokeForm: boolean = false;
+  showJokeText: boolean = false;
 
   allIntimate: any;
   filteredIntimate: any;
   randomIntimate: any;
   showIntimateForm: boolean = false;
+  showIntimateText: boolean = false;
 
   allTrivia: any;
   filteredTrivia: any;
   randomTrivia: any;
   showTriviaForm: boolean = false;
+  showTriviaText: boolean = false;
 
   restaurants: any;
   showRestaurantList: boolean = false;
@@ -43,7 +46,7 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getBeer();
@@ -71,7 +74,6 @@ export class JokesComponent implements OnInit {
     this.showJokeForm = !this.showJokeForm;
     this.showIntimateForm = false;
     this.showTriviaForm = false;
-
   }
 
   getAllJokes(form: NgForm) {
@@ -90,16 +92,17 @@ export class JokesComponent implements OnInit {
         Math.floor(Math.random() * this.dirtyVariable.length)
       ];
     });
+    this.showJokeText = true;
   }
   showPersonal() {
     this.showIntimateForm = !this.showIntimateForm;
     this.showJokeForm = false;
-    this.showTriviaForm = false
+    this.showTriviaForm = false;
   }
   getAllIntimate(form: NgForm) {
     this.service.getAllIntimate().subscribe((response) => {
       this.allIntimate = response;
-      console.log(this.allIntimate);
+      // console.log(this.allIntimate);
       if (form.value.intimate === 'level1') {
         this.filteredIntimate = this.allIntimate.filter((level) => {
           return level.intimacy_level === 1;
@@ -117,6 +120,7 @@ export class JokesComponent implements OnInit {
         Math.floor(Math.random() * this.filteredIntimate.length)
       ];
     });
+    this.showIntimateText = true;
   }
 
   showTrivia() {
@@ -149,6 +153,7 @@ export class JokesComponent implements OnInit {
         Math.floor(Math.random() * this.filteredTrivia.length)
       ];
     });
+    this.showTriviaText = true;
   }
 
   getCurrentMovies() {
@@ -195,6 +200,5 @@ export class JokesComponent implements OnInit {
         console.log(activityResponse);
         this.activities = activityResponse.candidates;
       });
-    form.reset();
   }
 }
