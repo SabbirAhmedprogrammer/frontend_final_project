@@ -9,15 +9,15 @@
   width: 90%;
   font-size: 2rem;
   margin: 5px 0;
-  border-radius:10px;
+  border-radius: 10px;
   box-shadow: 2px 2px 7px 3px #ee06a8;
-  transition:.5s
+  transition: 0.5s;
 }
 
-.main-buttons:hover{
-  transform:scale(1.1);
-  background-color:rgb(89, 0, 255);
-  color:white;
+.main-buttons:hover {
+  transform: scale(1.1);
+  background-color: rgb(89, 0, 255);
+  color: white;
 }
 
 /* example and testing are just to temporarily test these ideas**** */
@@ -36,10 +36,11 @@
   font-size: 1.25rem;
 }
 
-.icebreaker-container {
+.icebreakers-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .icebreaker-child {
@@ -61,38 +62,50 @@
   align-items: flex-end;
 }
 
+.select-intimate {
+  margin-right: -23px;
+}
+
 .icebreaker-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .icebreaker-buttons {
-  margin: 0 10px;
+  margin: 10px;
+  font-size: 1.4rem;
+  border-radius: 6px;
 }
 
 .restaurants-container {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   /* overflow-x: auto;
   max-width: -webkit-fill-available; */
-  list-style:none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.restaurant-card{
+.restaurant-card {
   border: 2px solid black;
   width: 25%;
   height: 150px;
   margin: 10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: antiquewhite;
+  border-radius: 10px;
 }
 
 .movies-container {
@@ -127,9 +140,6 @@
   max-width: 80%;
 }
 
-
-
-
 /* 
 .testing{
 width:100%;
@@ -154,31 +164,30 @@ margin:0;
   height:200px;
 } */
 
-
 .activities-section {
   width: 100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
- }
- .activities-container{
-   display: flex;
-   flex-wrap:wrap;
-   align-items: center;
-   justify-content: center;
-   /* overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.activities-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* overflow-x: auto;
    max-width: -webkit-fill-available; */
-   list-style:none;
-   padding: 0;
-   margin: 0;
- }
- .activities-card {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.activities-card {
   border: 2px solid black;
   width: 25%;
   height: 150px;
   margin: 10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
- }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
