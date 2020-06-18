@@ -3,21 +3,34 @@ h1, p {
     padding: 0;
 } 
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .header {
     margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* max-width: 630px; */
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .navigation{
     background: antiquewhite;
-    width: 150px;
-    position: absolute;
-    right: 0;
+    width: 100px;
+    /* position: absolute;
+    right: 0; */
     text-align: center;
+    margin-right: -36px;
+}
 
+h1 {
+    font-size: 3rem;
+}
+
+.fa-bars {
+    font-size: 2rem;
 }

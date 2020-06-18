@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DatenightService {
   apiURL: string = 'http://localhost:3000';
-  headerApiKey: string = 'a2361124f3msh8ee84513c3ca707p134e89jsna550c9f52d93';
+  headerApiKey: string = '';
   //move into headerApiKey when needed for testing, to keep it in use longer
   // headerApiKey :  "a2361124f3msh8ee84513c3ca707p134e89jsna550c9f52d93"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
@@ -22,6 +22,7 @@ export class DatenightService {
         category: 'POI',
         forStorage: 'false',
         f: 'json',
+        maxLocations: '15',
       },
     });
   }
