@@ -1,20 +1,9 @@
 <app-header></app-header>
 <div class="main-buttons-container">
-  <form
-    #locationForm="ngForm"
-    (ngSubmit)="search(locationForm)"
-    class="location-form"
-  >
+  <form #locationForm="ngForm" (ngSubmit)="search(locationForm)" class="location-form">
     <label for="locationText" class="location-label">Where is your date?</label>
-    <input
-      type="text"
-      class="input"
-      id="locationText"
-      name="locationText"
-      placeholder="Enter City, State"
-      ngModel
-      required
-    />
+    <input type="text" class="input" id="locationText" name="locationText" placeholder="Enter City, State" ngModel
+      required />
     <button class="label button">S e a r c h</button>
   </form>
 
@@ -28,11 +17,7 @@
       </button>
     </div>
     <div *ngIf="showJokeForm" class="icebreaker-child joke-button">
-      <form
-        #jokeForm="ngForm"
-        (change)="getAllJokes(jokeForm)"
-        class="form-testing"
-      >
+      <form #jokeForm="ngForm" (change)="getAllJokes(jokeForm)" class="form-testing">
         <!-- <label for="jokes">Adult Joke?</label> -->
         <select name="jokes" id="jokes" ngModel="adult">
           <option value="adult">Adult Joke?</option>
@@ -90,19 +75,15 @@
   <button (click)="showMovies()" class="main-buttons">Movies</button>
   <ul class="movies-container" *ngIf="showMovieList">
     <li *ngFor="let movie of moviesList; index as i" class="movie">
-      <img
-        src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
-        alt="movie poster"
-        class="movie-poster"
-      />
+      <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="movie poster" class="movie-poster" />
       <p>{{ movie.title }}</p>
       <!-- <p>{{ movie.overview }}</p> -->
     </li>
   </ul>
 
   <button (click)="showRestaurants()" class="main-buttons">Restaurants</button>
-  <ul class="restaurants" *ngIf="showRestaurantList">
-    <li *ngFor="let item of restaurantsFiltered">
+  <ul class="restaurants-container" *ngIf="showRestaurantList">
+    <li *ngFor="let item of restaurantsFiltered" class="restaurant-card">
       <a href="{{ item.website }}">{{ item.name }}</a>
       <p>{{ item.address }}</p>
     </li>
@@ -118,7 +99,7 @@
   </div>
 
   <button (click)="showActivities()" class="main-buttons">Activity</button>
-  <div *ngIf="showActivityForm">
+  <div *ngIf="showActivityForm" class="activities-section">
     <form #activityForm="ngForm" (change)="getActivities(activityForm)">
       <!-- <label for="activities">Select an activity</label> -->
       <select name="activities" id="activities" ngModel="">
@@ -142,12 +123,10 @@
       </select>
     </form>
 
-    <ul>
-      <li *ngFor="let activity of activities">
+    <ul class="activities-container">
+      <li *ngFor="let activity of activities" class="activities-card">
         <p>{{ activity.attributes.PlaceName }}</p>
         <p>{{ activity.attributes.Place_Addr }}</p>
-        <!-- <p>{{ activity.attributes.City }}</p> -->
-        <!-- <p>{{ activity.attributes.Region }}</p> -->
       </li>
     </ul>
   </div>
