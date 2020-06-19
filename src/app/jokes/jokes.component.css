@@ -1,5 +1,9 @@
-p,label,button, input, select {
-  font-family: 'Source Sans Pro', sans-serif;
+p,
+label,
+button,
+input,
+select {
+  font-family: "Source Sans Pro", sans-serif;
 }
 .page-container {
   display: flex;
@@ -19,13 +23,16 @@ app-header {
   justify-content: center;
   width: 80%;
 }
+.container-four {
+  display: flex;
+}
 
-select{
+select {
   background-color: rgb(239, 239, 239);
 }
 
-button{
-  cursor:pointer;
+button {
+  cursor: pointer;
 }
 
 .main-buttons {
@@ -35,9 +42,8 @@ button{
   border-radius: 10px;
   box-shadow: 2px 2px 7px 3px #ee06a8;
   transition: 0.5s;
-  font-family: 'Lobster', cursive;
-  cursor:pointer;
-
+  font-family: "Lobster", cursive;
+  cursor: pointer;
 }
 
 .main-buttons:hover {
@@ -59,12 +65,12 @@ button{
 
 .location-label {
   font-size: 1.8rem;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
 
 .text-boxes {
   border: 1px solid black;
-  background-color: rgba(251, 206, 177, .7);
+  background-color: rgba(251, 206, 177, 0.7);
   border-radius: 10px;
   padding: 5px;
 }
@@ -83,14 +89,14 @@ button{
 
 .select-input {
   border-radius: 5px;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
 
 .icebreaker-child-container {
   display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
 }
 
 .icebreaker-body {
@@ -99,7 +105,7 @@ button{
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  background-color: rgba(251, 206, 177, .7);
+  background-color: rgba(251, 206, 177, 0.7);
   border-radius: 10px;
   padding: 5px;
 }
@@ -108,11 +114,11 @@ button{
   margin: 10px;
   font-size: 1.4rem;
   border-radius: 6px;
-  background-color:#ee82ee;
+  background-color: #ee82ee;
 }
 
 .icebreaker-p {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .restaurants-container {
@@ -136,7 +142,7 @@ button{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color:  rgba(251, 206, 177, .7);
+  background-color: rgba(251, 206, 177, 0.7);
   border-radius: 10px;
 }
 
@@ -168,7 +174,7 @@ button{
   border-radius: 10px;
 }
 
-.movie-title{
+.movie-title {
   background-color: rgb(239, 239, 239);
   text-align: center;
   border-radius: 10px;
@@ -178,23 +184,23 @@ button{
   display: flex;
   flex-direction: column;
   max-width: 80%;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-.beer-name{
+.beer-name {
   font-size: 30px;
   margin: 0 auto;
-  font-family: 'Lobster Two', cursive;
+  font-family: "Lobster Two", cursive;
   margin-bottom: 10px;
 }
 
-.beer-style{
-  font-size:20px
+.beer-style {
+  font-size: 20px;
 }
 
-.beer-abv{
-  font-size:20px;
-  margin-bottom:10px;
+.beer-abv {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .activities-section {
@@ -224,7 +230,11 @@ button{
   text-align: center;
 }
 
-.border-boxshadow{
+.activity-name {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.border-boxshadow {
   box-shadow: 2px 2px 7px 3px #efefef;
   border: 2px solid #f02fa7;
 }
@@ -238,7 +248,11 @@ button{
 
 @media only screen and (min-width: 768px) {
   .main-buttons {
-    background-color: cyan;
+    background-color: #00efff;
+  }
+  .main-buttons:hover {
+    transform: scale(1.05);
+    background-color: rgb(239, 239, 239);
   }
   .main-buttons-container {
     max-width: 650px;
