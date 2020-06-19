@@ -13,7 +13,7 @@ export class DatenightService {
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {

@@ -20,6 +20,10 @@ app-header {
   width: 80%;
 }
 
+select{
+  background-color: rgb(239, 239, 239);
+}
+
 button{
   cursor:pointer;
 }
@@ -67,8 +71,6 @@ button{
 .icebreakers-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .icebreaker-child {
@@ -76,26 +78,19 @@ button{
   flex-direction: column;
   justify-content: center;
   max-width: 250px;
+  align-items: center;
 }
 
 .select-input {
   border-radius: 5px;
   margin-bottom:5px;
 }
-.joke-button {
-  align-items: flex-start;
-}
 
-.trivia-button {
-  align-items: center;
-}
-
-.intimate-button {
-  align-items: flex-end;
-}
-
-.select-intimate {
-  margin-right: -23px;
+.icebreaker-child-container {
+  display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
 }
 
 .icebreaker-body {
@@ -114,6 +109,10 @@ button{
   font-size: 1.4rem;
   border-radius: 6px;
   background-color:#ee82ee;
+}
+
+.icebreaker-p {
+  margin-bottom: 10px; 
 }
 
 .restaurants-container {
@@ -137,7 +136,7 @@ button{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: antiquewhite;
+  background-color:  rgba(251, 206, 177, .7);
   border-radius: 10px;
 }
 
