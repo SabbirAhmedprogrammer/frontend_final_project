@@ -1,5 +1,4 @@
-h1,
-p {
+h1,p {
   margin: 0;
   padding: 0;
 }
@@ -9,26 +8,23 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  font-family: 'Lobster', cursive;
+
   /* max-width: 630px; */
 }
 
 .header-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  /* position: relative; */
+  position: relative;
 }
 
 .navigation {
-  background: antiquewhite;
+  /* background: rgba(250, 235, 215, 1); */
   width: 100px;
   text-align: center;
-  margin-right: -36px;
   border-radius: 5px;
-  /* position: absolute;
-    top: 35px;
-    right: -32px; */
+  position: absolute;
+  top: 35px;
+  right: -36px;
 }
 
 h1 {
@@ -43,4 +39,17 @@ h1 {
   list-style: none;
   padding: 0;
   margin: 5px;
+  color:white;
+}
+
+
+.fa-heart{
+    font-size: 100px;
+    padding: 0;
+    margin: 0;
+    z-index: -5;
+    position: absolute;
+    left: 0;
+    top: -11px;
+    color:red;
 }

@@ -1,3 +1,6 @@
+p,label,button, input, select {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 .page-container {
   display: flex;
   flex-direction: column;
@@ -17,6 +20,10 @@ app-header {
   width: 80%;
 }
 
+button{
+  cursor:pointer;
+}
+
 .main-buttons {
   width: 90%;
   font-size: 2rem;
@@ -24,12 +31,14 @@ app-header {
   border-radius: 10px;
   box-shadow: 2px 2px 7px 3px #ee06a8;
   transition: 0.5s;
+  font-family: 'Lobster', cursive;
+  cursor:pointer;
+
 }
 
 .main-buttons:hover {
-  transform: scale(1.1);
-  background-color: rgb(89, 0, 255);
-  color: white;
+  transform: scale(1.05);
+  background-color: #00efff;
 }
 
 /* example and testing are just to temporarily test these ideas**** */
@@ -45,12 +54,13 @@ app-header {
 }
 
 .location-label {
-  font-size: 1.25rem;
+  font-size: 1.8rem;
+  font-family: 'Lobster', cursive;
 }
 
 .text-boxes {
   border: 1px solid black;
-  background-color: antiquewhite;
+  background-color: rgba(251, 206, 177, .7);
   border-radius: 10px;
   padding: 5px;
 }
@@ -70,6 +80,7 @@ app-header {
 
 .select-input {
   border-radius: 5px;
+  margin-bottom:5px;
 }
 .joke-button {
   align-items: flex-start;
@@ -93,7 +104,7 @@ app-header {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  background-color: antiquewhite;
+  background-color: rgba(251, 206, 177, .7);
   border-radius: 10px;
   padding: 5px;
 }
@@ -102,6 +113,7 @@ app-header {
   margin: 10px;
   font-size: 1.4rem;
   border-radius: 6px;
+  background-color:#ee82ee;
 }
 
 .restaurants-container {
@@ -153,12 +165,37 @@ app-header {
 .movie-poster {
   height: 200px;
   width: 150px;
+  border: solid black 3px;
+  border-radius: 10px;
+}
+
+.movie-title{
+  background-color: rgb(239, 239, 239);
+  text-align: center;
+  border-radius: 10px;
 }
 
 .beer-body {
   display: flex;
   flex-direction: column;
   max-width: 80%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.beer-name{
+  font-size: 30px;
+  margin: 0 auto;
+  font-family: 'Lobster Two', cursive;
+  margin-bottom: 10px;
+}
+
+.beer-style{
+  font-size:20px
+}
+
+.beer-abv{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
 .activities-section {
@@ -179,7 +216,6 @@ app-header {
   margin: 0;
 }
 .activities-card {
-  border: 2px solid black;
   width: 125px;
   height: 150px;
   margin: 10px;
@@ -187,6 +223,11 @@ app-header {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.border-boxshadow{
+  box-shadow: 2px 2px 7px 3px #efefef;
+  border: 2px solid #f02fa7;
 }
 
 .buttons-text {
