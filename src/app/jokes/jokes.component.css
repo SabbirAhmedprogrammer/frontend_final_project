@@ -23,9 +23,15 @@ app-header {
   justify-content: center;
   width: 80%;
 }
-.container-four {
+
+.just-buttons-container{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
 }
+
 
 select {
   background-color: rgb(239, 239, 239);
@@ -66,6 +72,7 @@ button {
 .location-label {
   font-size: 1.8rem;
   font-family: "Lobster", cursive;
+  margin-bottom: 5px;
 }
 
 .text-boxes {
@@ -230,6 +237,8 @@ button {
   text-align: center;
 }
 
+
+
 .activity-name {
   margin-bottom: 10px;
   font-weight: 600;
@@ -244,11 +253,24 @@ button {
   border-radius: 10px;
   background-color: violet;
   margin: 0 auto;
+  font-weight: 900;
 }
 
 @media only screen and (min-width: 768px) {
+
+  .just-buttons-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
   .main-buttons {
     background-color: #00efff;
+    width:43%;
+    margin: 15px;
+    padding: 15px;
   }
   .main-buttons:hover {
     transform: scale(1.05);
@@ -260,5 +282,12 @@ button {
 
   app-header {
     width: 60%;
+  }
+  .activity-form-position{
+    margin-left: 258px;
+  }
+
+  .location-form{
+    margin-top: 50px;
   }
 }
