@@ -13,7 +13,17 @@ select {
 }
 
 app-header {
-  width: 80%;
+  width: 100%;
+  box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid black;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    65deg,
+    rgba(251, 206, 177, 1) 0%,
+    rgba(220, 81, 117, 1) 44%,
+    rgba(184, 63, 80, 1) 89%
+  );
+  border-radius: 0 0 15px 15px;
 }
 
 .main-buttons-container {
@@ -24,14 +34,13 @@ app-header {
   width: 80%;
 }
 
-.just-buttons-container{
+.just-buttons-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 80%;
 }
-
 
 select {
   background-color: rgb(239, 239, 239);
@@ -46,7 +55,7 @@ button {
   font-size: 2rem;
   margin: 5px 0;
   border-radius: 10px;
-  box-shadow: 2px 2px 7px 3px #ee06a8;
+  box-shadow: 2px 2px 7px 3px rgb(18, 49, 220);
   transition: 0.5s;
   font-family: "Lobster", cursive;
   cursor: pointer;
@@ -237,8 +246,6 @@ button {
   text-align: center;
 }
 
-
-
 .activity-name {
   margin-bottom: 10px;
   font-weight: 600;
@@ -257,8 +264,7 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-
-  .just-buttons-container{
+  .just-buttons-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -268,7 +274,7 @@ button {
 
   .main-buttons {
     background-color: #00efff;
-    width:44%;
+    width: 44%;
     margin: 15px;
     padding: 15px;
   }
@@ -280,14 +286,11 @@ button {
     max-width: 650px;
   }
 
-  app-header {
-    width: 60%;
-  }
-  .activity-form-position{
+  .activity-form-position {
     margin-left: 258px;
   }
 
-  .location-form{
+  .location-form {
     margin-top: 50px;
   }
 }
