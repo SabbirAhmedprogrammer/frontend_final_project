@@ -49,11 +49,13 @@ export class JokesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.getBeer();
     this.getCurrentMovies();
     this.route.queryParams.subscribe((response) => {
-      let location = response.city;
-      this.service.getLocation(location).subscribe((response) => {
+      this.location = response.city;
+      console.log(this.location);
+      this.service.getLocation(this.location).subscribe((response) => {
         let locationID = response.data[0].result_object.location_id;
         this.service.getFood(locationID).subscribe((response) => {
           this.restaurants = response.data;
@@ -179,7 +181,7 @@ export class JokesComponent implements OnInit {
       queryParams: { city: form.value.locationText },
     });
     this.location = form.value.locationText;
-    form.reset();
+    // form.reset();
   }
 
   showRestaurants() {

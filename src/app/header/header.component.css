@@ -9,6 +9,10 @@ h1,p {
     justify-content: space-between;
     align-items: baseline;
     font-family: 'Lobster', cursive;
+    border-bottom: 2px solid black;
+    background-color: rgba(245, 222, 179,.3);
+    padding: 0 5px;
+    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
   
     /* max-width: 630px; */
   }
