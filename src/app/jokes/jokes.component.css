@@ -72,6 +72,7 @@ button {
 .location-label {
   font-size: 1.8rem;
   font-family: "Lobster", cursive;
+  margin-bottom: 5px;
 }
 
 .text-boxes {
@@ -252,6 +253,7 @@ button {
   border-radius: 10px;
   background-color: violet;
   margin: 0 auto;
+  font-weight: 900;
 }
 
 @media only screen and (min-width: 768px) {
@@ -268,6 +270,7 @@ button {
     background-color: #00efff;
     width:43%;
     margin: 15px;
+    padding: 15px;
   }
   .main-buttons:hover {
     transform: scale(1.05);
@@ -282,5 +285,9 @@ button {
   }
   .activity-form-position{
     margin-left: 258px;
+  }
+
+  .location-form{
+    margin-top: 50px;
   }
 }
