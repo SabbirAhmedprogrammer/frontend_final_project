@@ -1,55 +1,132 @@
 h1,p {
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-family: 'Lobster', cursive;
-
-  /* max-width: 630px; */
-}
-
-.header-container {
-  position: relative;
-}
-
-.navigation {
-  /* background: rgba(250, 235, 215, 1); */
-  width: 100px;
-  text-align: center;
-  border-radius: 5px;
-  position: absolute;
-  top: 35px;
-  right: -36px;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-.fa-bars {
-  font-size: 2rem;
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 5px;
-  color:white;
-}
-
-
-.fa-heart{
-    font-size: 100px;
-    padding: 0;
     margin: 0;
-    z-index: -5;
+    padding: 0;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Lobster', cursive;
+  
+    /* max-width: 630px; */
+  }
+  
+  .header-container {
+    position: relative;
+  }
+  
+  .navigation {
+    /* background: rgba(250, 235, 215, 1); */
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
     position: absolute;
-    left: 0;
-    top: -11px;
-    color:red;
-}
+    top: 35px;
+    right: -36px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  .fa-bars {
+    font-size: 2rem;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+    color:white;
+  }
+  
+  
+  .nav-heart{
+      font-size: 100px;
+      padding: 0;
+      margin: 0;
+      z-index: -5;
+      position: absolute;
+      left: 0;
+      top: -11px;
+      color:red;
+      animation-direction: alternate;
+      -webkit-transition-property: -webkit-transform;
+      -webkit-transition-duration: 1s;
+      -moz-transition-property: -moz-transform;
+      -moz-transition-duration: 1s;
+      -webkit-animation-name: grow-nav;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: grow-nav;
+      -moz-animation-duration: 2s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+  }
+  
+  .growing-heart {
+      color:red;
+      font-size:32px;
+      padding: 0;
+      margin: 0;
+      animation-direction: alternate;
+      -webkit-transition-property: -webkit-transform;
+      -webkit-transition-duration: 1s;
+      -moz-transition-property: -moz-transform;
+      -moz-transition-duration: 1s;
+      -webkit-animation-name: grow-small;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: grow-small;
+      -moz-animation-duration: 1s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+  }
+  
+  @-webkit-keyframes grow-small {
+      from {
+              -webkit-transform:scale(1);
+          }
+          to {
+              -webkit-transform:scale(1.5);
+              color:#ee06a8;
+          }
+      }
+  
+      @-moz-keyframes grow-small {
+          from {
+              -webkit-transform:scale(1);
+          }
+          to {
+              -webkit-transform:scale(1.5);
+              color:blue;
+          }
+      }
+  
+      /* this is for the nav heart  */
+  
+      @-webkit-keyframes grow-nav {
+          from {
+                  -webkit-transform:scale(1);
+              }
+              to {
+                  -webkit-transform:scale(1.2);
+  
+              }
+          }
+      
+          @-moz-keyframes grow-nav {
+              from {
+                  -webkit-transform:scale(1);
+              }
+              to {
+                  -webkit-transform:scale(1.3);
+              }
+          }
+  
+  
+  
