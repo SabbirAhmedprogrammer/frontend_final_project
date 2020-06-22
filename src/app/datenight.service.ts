@@ -88,19 +88,19 @@ export class DatenightService {
     return this.http.get(`${this.apiURL}/beer`);
   }
 
-  getTodos(): any {
-    return this.http.get(`${this.apiURL}/todo-items`)
+  getTasks(): any {
+    return this.http.get(`${this.apiURL}/checklist-items`)
   }
 
   addTask(task: Checklist): any {
-    return this.http.post(`${this.apiURL}/todo-items`, task)
+    return this.http.post(`${this.apiURL}/checklist-items`, task)
   }
 
   deleteTask(id: number): any {
-    return this.http.delete(`${this.apiURL}/todo-items/${id}`)
+    return this.http.delete(`${this.apiURL}/checklist-items/${id}`)
   }
 
   updateTask(id: number, task: Checklist): any {
-    return this.http.put(`${this.apiURL}/todo-items/${id}`, task)
+    return this.http.put(`${this.apiURL}/checklist-items/${id}`, task)
   }
 }

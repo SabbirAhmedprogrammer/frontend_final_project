@@ -1,11 +1,7 @@
 <app-header></app-header>
 <main>
     <section class="main-content">
-        <h1>TODO List</h1>
-        <p class="about">A place to store your todos</p>
-        <form class="form">
-            <input class="input" type="text" name="filter" placeholder="Filter your to-dos" />
-        </form>
+        <h1>Date Nite Checklist</h1>
         <ol class="ordered-list">
             <li class="list-item" *ngFor="let item of todos">
                 <div class="item-container">
@@ -20,7 +16,7 @@
             </li>
         </ol>
         <form class="form" #taskForm="ngForm" (ngSubmit)="addTask(taskForm)">
-            <input class="input" type="text" name="task" id="task" placeholder="Add your to-do" ngModel />
+            <input class="input" type="text" name="task" id="task" placeholder="Add Date Prep Task" ngModel />
             <button class="add-btn">Add</button>
         </form>
     </section>

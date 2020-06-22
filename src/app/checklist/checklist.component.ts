@@ -13,11 +13,11 @@ export class ChecklistComponent implements OnInit {
   constructor(private service: DatenightService) { }
   todos: Checklist[] = [];
   ngOnInit(): void {
-    this.getTodos();
+    this.getTasks();
   }
 
-  getTodos() {
-    this.service.getTodos().subscribe(response => {
+  getTasks() {
+    this.service.getTasks().subscribe(response => {
       this.todos = response;
       console.log(this.todos)
     })
@@ -28,21 +28,22 @@ export class ChecklistComponent implements OnInit {
     todo.completed = false
     console.log(todo);
     this.service.addTask(todo).subscribe(() => {
-      this.getTodos();
+      this.getTasks();
       form.reset();
     });
   }
 
   deleteTask(id: number): void {
+    console.log(id);
     this.service.deleteTask(id).subscribe(() => {
-      this.getTodos();
+      this.getTasks();
     })
   }
 
   updateTask(task: Checklist): void {
     task.completed = true;
     this.service.updateTask(task.id, task).subscribe(() => {
-      this.getTodos();
+      this.getTasks();
     })
   }
 }
