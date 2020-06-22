@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Checklist } from './interfaces/checklist';
 
 @Injectable({
   providedIn: 'root',
@@ -85,5 +86,21 @@ export class DatenightService {
 
   getBeer(): any {
     return this.http.get(`${this.apiURL}/beer`);
+  }
+
+  getTodos(): any {
+    return this.http.get(`${this.apiURL}/todo-items`)
+  }
+
+  addTask(task: Checklist): any {
+    return this.http.post(`${this.apiURL}/todo-items`, task)
+  }
+
+  deleteTask(id: number): any {
+    return this.http.delete(`${this.apiURL}/todo-items/${id}`)
+  }
+
+  updateTask(id: number, task: Checklist): any {
+    return this.http.put(`${this.apiURL}/todo-items/${id}`, task)
   }
 }

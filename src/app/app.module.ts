@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JokesComponent } from './jokes/jokes.component';
 import { HeaderComponent } from './header/header.component';
+import { ChecklistComponent } from './checklist/checklist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JokesComponent,
     HeaderComponent,
+    ChecklistComponent,
   ],
   imports: [
     BrowserModule,
