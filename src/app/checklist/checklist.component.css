@@ -1,0 +1,17 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
+app-header {
+    width: 100%;
+    box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+    background: linear-gradient(
+      65deg,
+      rgba(251, 206, 177, 1) 0%,
+      rgba(220, 81, 117, 1) 44%,
+      rgba(184, 63, 80, 1) 89%
+    );
+    border-radius: 0 0 15px 15px;
+}
