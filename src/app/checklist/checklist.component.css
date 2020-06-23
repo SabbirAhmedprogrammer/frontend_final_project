@@ -9,9 +9,13 @@ main {
   
   input, button {
     font-size: 1.3rem;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid black;
     padding: 5px;
+  }
+
+  input:focus, button:focus{
+      outline: none;
   }
   
   .main-content {
@@ -24,14 +28,11 @@ main {
     box-shadow: 2px 2px 7px 3px #efefef;
     border: 2px solid #f02fa7;
     border-radius: 10px;
+    margin-top: 50px;
   }
   
   .about {
     margin: 5px 0;
-  }
-  
-  .input {
-    margin-bottom: 5px;
   }
   
   .form {
@@ -79,14 +80,20 @@ main {
   .add-btn {
     background-color: violet;
     color: white;
+    width: 27%;
+    margin: 0 auto;
   }
 
   .add-btn:hover{
     /* transform:translateY(5px); */
     transform: scale(1.02);
+    box-shadow: 0.5px 6px 8px -3px black;
   }
 input{
-  text-align:center
+  text-align:center;
+  width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
   .h1 {
     font-family: "Lobster", cursive;

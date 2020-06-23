@@ -48,7 +48,7 @@ button {
 .main-buttons {
   width: 90%;
   font-size: 2rem;
-  margin: 5px 0;
+  margin: 10px 0;
   border-radius: 10px;
   box-shadow: 2px 2px 7px 3px rgb(18, 49, 220);
   transition: 0.5s;
@@ -126,6 +126,20 @@ button {
   font-size: 1.4rem;
   border-radius: 6px;
   background-color: #ee82ee;
+  color: white;
+}
+
+.icebreaker-buttons:hover {
+  transform: scale(1.02);
+    box-shadow: 0.5px 6px 8px -3px black;
+}
+
+input:focus, button:focus, select:focus{
+  outline: none;
+}
+
+.input {
+  text-align: center;
 }
 
 .icebreaker-p {
@@ -257,6 +271,11 @@ button {
   margin: 0 auto;
   font-weight: 900;
   color:white;
+}
+
+.buttons-text:hover{
+  transform: scale(1.02);
+  box-shadow: 0.5px 6px 8px -3px black;
 }
 
 @media only screen and (min-width: 768px) {

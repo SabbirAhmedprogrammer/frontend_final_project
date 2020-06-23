@@ -7,9 +7,9 @@ import { Checklist } from './interfaces/checklist';
 })
 export class DatenightService {
   apiURL: string = 'http://localhost:3000';
-  headerApiKey: string = 'a2361124f3msh8ee84513c3ca707p134e89jsna550c9f52d93';
+  headerApiKey: string = '';
   //move into headerApiKey when needed for testing, to keep it in use longer
-  // headerApiKey :  "a2361124f3msh8ee84513c3ca707p134e89jsna550c9f52d93"
+  // headerApiKey :  "735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
@@ -50,6 +50,7 @@ export class DatenightService {
           lang: 'en_US',
           // location_id: "42139"
           location_id: locationID,
+          limit: '15'
         },
         headers: {
           'x-rapidapi-key': this.headerApiKey,
