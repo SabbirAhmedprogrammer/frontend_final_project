@@ -1,17 +1,17 @@
 <app-header></app-header>
 <main>
     <section class="main-content">
-        <h1>Date Nite Checklist</h1>
+        <h1 class="h1">Date Nite Checklist</h1>
         <ol class="ordered-list">
-            <li class="list-item" *ngFor="let item of todos">
+            <li class="list-item" *ngFor="let item of todos, index as i">
                 <div class="item-container">
-                    <button *ngIf="!item.completed" class="complete-btn" (click)="updateTask(item)">
+                    <button *ngIf="!item.completed" class="complete-btn" (click)="updateTask(i)">
                         Complete
                     </button>
                     <p class="task" [ngClass]="{ completed: item.completed }">
                         {{ item.task }}
                     </p>
-                    <button (click)="deleteTask(item.id)">X</button>
+                    <button (click)="deleteTask(i)">X</button>
                 </div>
             </li>
         </ol>

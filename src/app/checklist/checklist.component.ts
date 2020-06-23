@@ -13,37 +13,21 @@ export class ChecklistComponent implements OnInit {
   constructor(private service: DatenightService) { }
   todos: Checklist[] = [];
   ngOnInit(): void {
-    this.getTasks();
+
   }
 
-  getTasks() {
-    this.service.getTasks().subscribe(response => {
-      this.todos = response;
-      console.log(this.todos)
-    })
+  addTask(form: NgForm) {
+    let newTask: Checklist = { task: form.value.task, completed: false };
+    this.todos.push(newTask);
+    form.reset();
   }
 
-  addTask(form: NgForm): void {
-    let todo = form.value;
-    todo.completed = false
-    console.log(todo);
-    this.service.addTask(todo).subscribe(() => {
-      this.getTasks();
-      form.reset();
-    });
+  deleteTask(index: number) {
+    this.todos.splice(index, 1)
   }
 
-  deleteTask(id: number): void {
-    console.log(id);
-    this.service.deleteTask(id).subscribe(() => {
-      this.getTasks();
-    })
+  updateTask(index: number) {
+    this.todos[index].completed = true;
   }
 
-  updateTask(task: Checklist): void {
-    task.completed = true;
-    this.service.updateTask(task.id, task).subscribe(() => {
-      this.getTasks();
-    })
-  }
 }

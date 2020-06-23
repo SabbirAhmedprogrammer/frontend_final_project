@@ -1,5 +1,5 @@
 export interface Checklist {
-    id?: number;
+    // id?: number;
     task: string;
     completed: boolean;
 }
