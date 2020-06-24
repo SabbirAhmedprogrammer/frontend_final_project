@@ -13,12 +13,17 @@ select {
 }
 
 app-header {
-    width: 100%;
-    box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    border-bottom: 1px solid black;
-    margin-bottom: 40px;
-    background: linear-gradient( 65deg, rgba(251, 206, 177, 1) 0%, rgba(220, 81, 117, 1) 44%, #00efff 89% );
-    border-radius: 0 0 15px 15px;
+  width: 100%;
+  box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid black;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    65deg,
+    rgba(251, 206, 177, 1) 0%,
+    rgba(220, 81, 117, 1) 44%,
+    #00efff 89%
+  );
+  border-radius: 0 0 15px 15px;
 }
 
 .main-buttons-container {
@@ -54,6 +59,7 @@ button {
   transition: 0.5s;
   font-family: "Lobster", cursive;
   cursor: pointer;
+  background-color: antiquewhite;
 }
 
 .main-buttons:hover {
@@ -131,12 +137,14 @@ button {
 
 .icebreaker-buttons:hover {
   transform: scale(1.02);
-    box-shadow: 0.5px 6px 8px -3px black;
+  box-shadow: 0.5px 6px 8px -3px black;
 }
 
-input:focus, button:focus, select:focus{
+input:focus,
+button:focus,
+select:focus {
   outline: none;
-  box-shadow: 0 0 0 1px rgba(0, 239, 255, .4);
+  box-shadow: 0 0 0 1px rgba(0, 239, 255, 0.4);
 }
 
 .input {
@@ -271,10 +279,10 @@ input:focus, button:focus, select:focus{
   background-color: violet;
   margin: 0 auto;
   font-weight: 900;
-  color:white;
+  color: white;
 }
 
-.buttons-text:hover{
+.buttons-text:hover {
   transform: scale(1.02);
   box-shadow: 0.5px 6px 8px -3px black;
 }
@@ -296,7 +304,7 @@ input:focus, button:focus, select:focus{
   }
   .main-buttons:hover {
     transform: scale(1.05);
-    background-color: rgb(239, 239, 239);
+    background-color: antiquewhite;
   }
   .main-buttons-container {
     max-width: 650px;
