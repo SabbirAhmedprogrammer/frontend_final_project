@@ -84,43 +84,34 @@ h1 {
 .growing-heart {
   color: red;
   font-size: 32px;
-
   padding: 0;
   margin: 0;
   margin-left: 20px;
-  animation-direction: alternate;
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-duration: 1s;
-  -moz-transition-property: -moz-transform;
-  -moz-transition-duration: 1s;
-  -webkit-animation-name: grow-small;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: grow-small;
-  -moz-animation-duration: 1s;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
+  animation: grow-small 3s infinite;
 }
 
-@-webkit-keyframes grow-small {
-  from {
+@keyframes grow-small{
+  0%, 100% {
     -webkit-transform: scale(1);
   }
-  to {
+  55% {
     -webkit-transform: scale(1.5);
-    color: #ee06a8;
+    color:Red;
   }
-}
-
-@-moz-keyframes grow-small {
-  from {
-    -webkit-transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1.5);
+  60%{
+    -webkit-transform: scale(2.0);
     color: blue;
   }
+  70%{
+    -webkit-transform: scale(1.5);
+    color:red;
+  }
+  75%{
+    -webkit-transform: scale(2.0);
+  color: blue;
+  /* color: #ee06a8; instead of blue? */
+  }
+
 }
 
 /* this is for the nav heart  */
