@@ -136,6 +136,7 @@ button {
 
 input:focus, button:focus, select:focus{
   outline: none;
+  box-shadow: 0 0 0 1px rgba(0, 239, 255, .4);
 }
 
 .input {
