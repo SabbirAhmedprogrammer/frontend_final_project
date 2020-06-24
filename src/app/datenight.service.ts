@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Checklist } from './interfaces/checklist';
 import { environment } from 'src/environments/environment';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class DatenightService {
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
-  constructor(private http: HttpClient) {}
+  todos: Checklist[] = [];
+  constructor(private http: HttpClient) { }
   getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {
@@ -88,5 +90,23 @@ export class DatenightService {
 
   getBeer(): any {
     return this.http.get(`${this.apiURL}/beer`);
+  }
+
+  getTasks() {
+    return this.todos;
+  }
+
+  addTask(form: NgForm) {
+    let newTask: Checklist = { task: form.value.task, completed: false };
+    this.todos.push(newTask);
+    form.reset();
+  }
+
+  deleteTask(index: number) {
+    this.todos.splice(index, 1)
+  }
+
+  updateTask(index: number) {
+    this.todos[index].completed = true;
   }
 }

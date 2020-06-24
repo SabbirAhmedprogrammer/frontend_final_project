@@ -9,25 +9,31 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./checklist.component.css']
 })
 export class ChecklistComponent implements OnInit {
+  todos: Checklist[] = [];
 
   constructor(private service: DatenightService) { }
-  todos: Checklist[] = [];
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.getTasks();
+  }
+
+  getTasks() {
+    this.todos = this.service.getTasks()
   }
 
   addTask(form: NgForm) {
-    let newTask: Checklist = { task: form.value.task, completed: false };
-    this.todos.push(newTask);
-    form.reset();
+    this.service.addTask(form);
+    this.getTasks();
   }
 
   deleteTask(index: number) {
-    this.todos.splice(index, 1)
+    this.service.deleteTask(index);
+    this.getTasks();
   }
 
   updateTask(index: number) {
-    this.todos[index].completed = true;
+    this.service.updateTask(index);
+    this.getTasks();
   }
 
 }

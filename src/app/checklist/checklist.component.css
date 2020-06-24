@@ -65,7 +65,7 @@ main {
   
   .complete-btn {
     color: #ffffff;
-    border: 1px solid violet;
+    border: 2px solid black;
     margin-right: 5px;
     background-color: violet;
   }
