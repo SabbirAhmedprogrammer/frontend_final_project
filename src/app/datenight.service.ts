@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Checklist } from './interfaces/checklist';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DatenightService {
-  apiURL: string = 'http://localhost:3000';
+  apiURL: string = environment.apiBaseUrl;
   headerApiKey: string = '';
   //move into headerApiKey when needed for testing, to keep it in use longer
   // headerApiKey :  "735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da"
@@ -14,7 +15,7 @@ export class DatenightService {
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {
@@ -24,7 +25,7 @@ export class DatenightService {
         forStorage: 'false',
         f: 'json',
         maxLocations: '15',
-        sourceCountry: 'USA'
+        sourceCountry: 'USA',
       },
     });
   }
@@ -50,7 +51,7 @@ export class DatenightService {
           lang: 'en_US',
           // location_id: "42139"
           location_id: locationID,
-          limit: '15'
+          limit: '15',
         },
         headers: {
           'x-rapidapi-key': this.headerApiKey,
