@@ -1,0 +1,49 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  app-header {
+    width: 100%;
+    box-shadow: -1px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+    background: linear-gradient(
+      65deg,
+      rgba(251, 206, 177, 1) 0%,
+      rgba(220, 81, 117, 1) 44%,
+      #00efff 89%
+    );
+    border-radius: 0 0 15px 15px;
+  }
+
+  h1{
+      margin-top: 50px;
+  }
+
+  .info-cards {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+  }
+
+  .info{
+      border: 2px solid black;
+      height:300px;
+      width: 300px;
+      margin-bottom: 15px;
+  }
+
+  @media only screen and (min-width: 768px){
+      .info-cards{
+          flex-direction: row;
+      }
+
+      .info{
+          margin-left: 15px
+      }
+  }

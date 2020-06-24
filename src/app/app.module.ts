@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { JokesComponent } from './jokes/jokes.component';
 import { HeaderComponent } from './header/header.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ChecklistComponent } from './checklist/checklist.component';
     JokesComponent,
     HeaderComponent,
     ChecklistComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
