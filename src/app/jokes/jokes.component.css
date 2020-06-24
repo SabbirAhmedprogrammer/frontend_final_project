@@ -87,7 +87,7 @@ button {
 
 .text-boxes {
   border: 1px solid black;
-  background-color: rgba(251, 206, 177, 0.7);
+  background-color: rgba(251, 251, 251, 0.7);
   border-radius: 10px;
   padding: 5px;
 }
@@ -122,7 +122,7 @@ button {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  background-color: rgba(251, 206, 177, 0.7);
+  background-color: rgba(251, 251, 251, 0.7);
   border-radius: 10px;
   padding: 5px;
 }
