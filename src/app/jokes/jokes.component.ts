@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./jokes.component.css'],
 })
 export class JokesComponent implements OnInit {
+  showSuccessText: boolean = false;
+
   showIceBreakersList: boolean = false;
   dirtyVariable: any;
   allJokes: any;
@@ -61,6 +63,7 @@ export class JokesComponent implements OnInit {
     this.showRestaurantList = false;
     this.show = false;
     this.showActivityForm = false;
+    this.showSuccessText = false;
   }
 
   showJokes() {
@@ -166,6 +169,7 @@ export class JokesComponent implements OnInit {
     this.showRestaurantList = false;
     this.show = false;
     this.showActivityForm = false;
+    this.showSuccessText = false;
   }
 
   search(form: NgForm) {
@@ -173,6 +177,7 @@ export class JokesComponent implements OnInit {
       queryParams: { city: form.value.locationText },
     });
     this.location = form.value.locationText;
+    this.showSuccessText = true;
   }
 
   getRestaurants() {
@@ -197,6 +202,7 @@ export class JokesComponent implements OnInit {
     this.showIceBreakersList = false;
     this.show = false;
     this.showActivityForm = false;
+    this.showSuccessText = false;
   }
 
   getBeer(): any {
@@ -211,6 +217,7 @@ export class JokesComponent implements OnInit {
     this.showRestaurantList = false;
     this.showIceBreakersList = false;
     this.showActivityForm = false;
+    this.showSuccessText = false;
   }
 
   showActivities() {
@@ -219,6 +226,7 @@ export class JokesComponent implements OnInit {
     this.showRestaurantList = false;
     this.show = false;
     this.showIceBreakersList = false;
+    this.showSuccessText = false;
   }
 
   getActivities(form: NgForm) {

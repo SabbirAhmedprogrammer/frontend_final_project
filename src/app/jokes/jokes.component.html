@@ -20,7 +20,7 @@
       />
       <button class="buttons-text">S e a r c h</button>
     </form>
-
+    <p *ngIf="showSuccessText">Success! Click the buttons below for details</p>
     <div class="just-buttons-container">
       <button (click)="showRestaurants()" class="main-buttons">
         Restaurants
