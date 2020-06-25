@@ -1,10 +1,24 @@
 <div class="page-container">
   <app-header></app-header>
   <div class="main-buttons-container">
-    <form #locationForm="ngForm" (ngSubmit)="search(locationForm);getRestaurants();" class="location-form">
-      <label for="locationText" class="location-label">Where is your date?</label>
-      <input type="text" class="input select-input" id="locationText" name="locationText"
-        placeholder="Enter City, State" ngModel required />
+
+    <form
+      #locationForm="ngForm"
+      (ngSubmit)="search(locationForm)"
+      class="location-form"
+    >
+      <label for="locationText" class="location-label"
+        >Where is your date?</label
+      >
+      <input
+        type="text"
+        class="input select-input"
+        id="locationText"
+        name="locationText"
+        placeholder="Enter City, State"
+        ngModel
+        required
+      />
       <button class="buttons-text">S e a r c h</button>
     </form>
 
@@ -13,7 +27,10 @@
         Restaurants
       </button>
       <ul class="restaurants-container" *ngIf="showRestaurantList">
-        <li *ngFor="let item of restaurantsFiltered" class="restaurant-card border-boxshadow">
+        <li
+          *ngFor="let item of restaurantsFiltered"
+          class="restaurant-card border-boxshadow"
+        >
           <a href="{{ item.website }}">{{ item.name }}</a>
           <p>{{ item.address }}</p>
         </li>
@@ -23,8 +40,12 @@
         Activities
       </button>
       <div *ngIf="showActivityForm" class="activities-section">
+
+      
+
         <form #activityForm="ngForm" (change)="getActivities(activityForm)" class="activity-form-position">
           <select name="activities" id="activities" class="select-input" ngModel="">
+
             <option value="">Select Activity</option>
             <option value="aquarium">Aquarium</option>
             <option value="beach">Beach</option>
@@ -39,14 +60,15 @@
         </form>
 
         <ul class="activities-container">
-          <li *ngFor="let activity of activities" class="activities-card text-boxes border-boxshadow">
+          <li
+            *ngFor="let activity of activities"
+            class="activities-card text-boxes border-boxshadow"
+          >
             <p class="activity-name">{{ activity.attributes.PlaceName }}</p>
             <p>{{ activity.attributes.Place_Addr }}</p>
           </li>
         </ul>
       </div>
-
-
 
       <button (click)="showIceBreakers()" class="main-buttons">
         Ice Breakers
@@ -57,8 +79,12 @@
             Jokes
           </button>
           <div *ngIf="showJokeForm" class="icebreaker-child">
+
+           
+
             <form #jokeForm="ngForm" (change)="getAllJokes(jokeForm)">
               <select name="jokes" id="jokes" class="select-input" ngModel="adult">
+
                 <option value="adult">Adult Joke?</option>
                 <option value="false">No</option>
                 <option value="true">Yes (NSFW!)</option>
@@ -68,7 +94,7 @@
               <p class="icebreaker-p">{{ randomJoke?.prompt }}</p>
               <p class="icebreaker-p">{{ randomJoke?.answer }}</p>
               <button (click)="getAllJokes(jokeForm)" class="buttons-text">
-                Get a New Joke!
+                Get New Joke
               </button>
             </div>
           </div>
@@ -89,11 +115,17 @@
               </select>
             </form>
 
-            <div *ngIf="showTriviaText" class="icebreaker-body border-boxshadow">
+            <div
+              *ngIf="showTriviaText"
+              class="icebreaker-body border-boxshadow"
+            >
               <p class="icebreaker-p">Q: {{ randomTrivia?.question }}</p>
-              <p class="icebreaker-p">A: {{ randomTrivia?.answer }}</p>
+              <button (click)="showAnswer()">Show Answer</button>
+              <p *ngIf="showTriviaAnswer" class="icebreaker-p">
+                {{ randomTrivia?.answer }}
+              </p>
               <button (click)="getAllTrivia(triviaForm)" class="buttons-text">
-                Get Trivia
+                Get New Trivia
               </button>
             </div>
           </div>
@@ -104,6 +136,8 @@
             Personal
           </button>
           <div *ngIf="showIntimateForm" class="icebreaker-child">
+
+          
             <form #intimateForm="ngForm" (change)="getAllIntimate(intimateForm)">
               <select name="intimate" id="intimate" ngModel="" class="select-input select-intimate">
                 <option value="">Intimacy Level</option>
@@ -113,9 +147,15 @@
               </select>
             </form>
 
-            <div *ngIf="showIntimateText" class="icebreaker-body border-boxshadow">
+            <div
+              *ngIf="showIntimateText"
+              class="icebreaker-body border-boxshadow"
+            >
               <p class="icebreaker-p">{{ randomIntimate?.question }}</p>
-              <button (click)="getAllIntimate(intimateForm)" class="buttons-text">
+              <button
+                (click)="getAllIntimate(intimateForm)"
+                class="buttons-text"
+              >
                 Get New Topic
               </button>
             </div>
@@ -126,7 +166,11 @@
       <button (click)="showMovies()" class="main-buttons">Movies</button>
       <ul class="movies-container" *ngIf="showMovieList">
         <li *ngFor="let movie of moviesList; index as i" class="movie">
-          <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="movie poster" class="movie-poster" />
+          <img
+            src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+            alt="movie poster"
+            class="movie-poster"
+          />
           <p class="movie-title">{{ movie.title }}</p>
         </li>
       </ul>

@@ -27,6 +27,7 @@ export class JokesComponent implements OnInit {
   randomTrivia: any;
   showTriviaForm: boolean = false;
   showTriviaText: boolean = false;
+  showTriviaAnswer: boolean = false;
 
   restaurants: any;
   showRestaurantList: boolean = false;
@@ -46,10 +47,9 @@ export class JokesComponent implements OnInit {
     private service: DatenightService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     this.getBeer();
     this.getCurrentMovies();
   }
@@ -119,6 +119,9 @@ export class JokesComponent implements OnInit {
     this.showJokeForm = false;
     this.showIntimateForm = false;
   }
+  showAnswer() {
+    this.showTriviaAnswer = !this.showTriviaAnswer;
+  }
 
   getAllTrivia(form: NgForm) {
     this.service.getAllTrivia().subscribe((response) => {
@@ -145,6 +148,7 @@ export class JokesComponent implements OnInit {
       ];
     });
     this.showTriviaText = true;
+    this.showTriviaAnswer = false;
   }
 
   getCurrentMovies() {
