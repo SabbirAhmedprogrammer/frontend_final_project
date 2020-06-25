@@ -16,8 +16,6 @@ a {
   -webkit-text-stroke: 1px black;
   width: 80%;
   margin: 0 auto;
-
-  /* max-width: 630px; */
 }
 
 .header-container {
@@ -25,7 +23,6 @@ a {
 }
 
 .navigation {
-  /* background: rgba(250, 235, 215, 1); */
   width: 100px;
   text-align: center;
   border-radius: 5px;
@@ -109,7 +106,6 @@ h1 {
   75%{
     -webkit-transform: scale(2.0);
   color: blue;
-  /* color: #ee06a8; instead of blue? */
   }
 
 }

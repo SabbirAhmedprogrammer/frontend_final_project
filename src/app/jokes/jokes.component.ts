@@ -52,20 +52,6 @@ export class JokesComponent implements OnInit {
 
     this.getBeer();
     this.getCurrentMovies();
-    this.route.queryParams.subscribe((response) => {
-      this.location = response.city;
-      console.log(this.location);
-      this.service.getLocation(this.location).subscribe((response) => {
-        let locationID = response.data[0].result_object.location_id;
-        this.service.getFood(locationID).subscribe((response) => {
-          this.restaurants = response.data;
-          this.restaurantsFiltered = this.restaurants.filter((restaurant) => {
-            return restaurant.hasOwnProperty('name');
-          });
-          console.log(this.restaurantsFiltered);
-        });
-      });
-    });
   }
 
   showIceBreakers() {
@@ -108,7 +94,6 @@ export class JokesComponent implements OnInit {
   getAllIntimate(form: NgForm) {
     this.service.getAllIntimate().subscribe((response) => {
       this.allIntimate = response;
-      // console.log(this.allIntimate);
       if (form.value.intimate === 'level1') {
         this.filteredIntimate = this.allIntimate.filter((level) => {
           return level.intimacy_level === 1;
@@ -181,7 +166,22 @@ export class JokesComponent implements OnInit {
       queryParams: { city: form.value.locationText },
     });
     this.location = form.value.locationText;
-    // form.reset();
+  }
+
+  getRestaurants() {
+    this.route.queryParams.subscribe((response) => {
+      this.location = response.city;
+      console.log(this.location);
+      this.service.getLocation(this.location).subscribe((response) => {
+        let locationID = response.data[0].result_object.location_id;
+        this.service.getFood(locationID).subscribe((response) => {
+          this.restaurants = response.data;
+          this.restaurantsFiltered = this.restaurants.filter((restaurant) => {
+            return restaurant.hasOwnProperty('name');
+          });
+        });
+      });
+    });
   }
 
   showRestaurants() {
@@ -197,7 +197,6 @@ export class JokesComponent implements OnInit {
       this.beer = response;
       console.log(response);
     });
-    // this.show = true;
   }
   hideBeer(): any {
     this.show = !this.show;

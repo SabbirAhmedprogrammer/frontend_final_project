@@ -1,7 +1,7 @@
 <div class="page-container">
   <app-header></app-header>
   <div class="main-buttons-container">
-    <form #locationForm="ngForm" (ngSubmit)="search(locationForm)" class="location-form">
+    <form #locationForm="ngForm" (ngSubmit)="search(locationForm);getRestaurants();" class="location-form">
       <label for="locationText" class="location-label">Where is your date?</label>
       <input type="text" class="input select-input" id="locationText" name="locationText"
         placeholder="Enter City, State" ngModel required />
@@ -9,7 +9,7 @@
     </form>
 
     <div class="just-buttons-container">
-      <button (click)="showRestaurants()" class="main-buttons">
+      <button (click)="showRestaurants();" class="main-buttons">
         Restaurants
       </button>
       <ul class="restaurants-container" *ngIf="showRestaurantList">
@@ -24,7 +24,6 @@
       </button>
       <div *ngIf="showActivityForm" class="activities-section">
         <form #activityForm="ngForm" (change)="getActivities(activityForm)" class="activity-form-position">
-          <!-- <label for="activities">Select an activity</label> -->
           <select name="activities" id="activities" class="select-input" ngModel="">
             <option value="">Select Activity</option>
             <option value="aquarium">Aquarium</option>
@@ -58,12 +57,11 @@
             Jokes
           </button>
           <div *ngIf="showJokeForm" class="icebreaker-child">
-            <form #jokeForm="ngForm" (change)="getAllJokes(jokeForm)" class="form-testing">
-              <!-- <label for="jokes">Adult Joke?</label> -->
+            <form #jokeForm="ngForm" (change)="getAllJokes(jokeForm)">
               <select name="jokes" id="jokes" class="select-input" ngModel="adult">
                 <option value="adult">Adult Joke?</option>
                 <option value="false">No</option>
-                <option value="true">Yes</option>
+                <option value="true">Yes (NSFW!)</option>
               </select>
             </form>
             <div *ngIf="showJokeText" class="icebreaker-body border-boxshadow">
@@ -82,7 +80,6 @@
           </button>
           <div *ngIf="showTriviaForm" class="icebreaker-child">
             <form #triviaForm="ngForm" (change)="getAllTrivia(triviaForm)">
-              <!-- <label for="trivia">Choose Category</label> -->
               <select name="trivia" id="trivia" class="select-input" ngModel="">
                 <option value="">Choose Category</option>
                 <option value="miscellaneous" selected>Miscellaneous</option>
@@ -102,21 +99,17 @@
           </div>
         </div>
 
-        <!-- **************************************** -->
-        <!-- on change it will run the function, vs onSubmit which requires clicking enter or a submit button -->
-        <!-- focus must be taken away from an input field for it to consider it as a change, and then run the function defined -->
         <div class="icebreaker-child-container">
           <button (click)="showPersonal()" class="icebreaker-buttons">
             Personal
           </button>
           <div *ngIf="showIntimateForm" class="icebreaker-child">
             <form #intimateForm="ngForm" (change)="getAllIntimate(intimateForm)">
-              <!-- <label for="intimate">Choose Intimacy Level</label> -->
               <select name="intimate" id="intimate" ngModel="" class="select-input select-intimate">
                 <option value="">Intimacy Level</option>
-                <option value="level1">Level 1</option>
-                <option value="level2">Level 2</option>
-                <option value="level3">Level 3</option>
+                <option value="level1">First Date</option>
+                <option value="level2">Getting Serious</option>
+                <option value="level3">Going Steady</option>
               </select>
             </form>
 
@@ -135,12 +128,8 @@
         <li *ngFor="let movie of moviesList; index as i" class="movie">
           <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="movie poster" class="movie-poster" />
           <p class="movie-title">{{ movie.title }}</p>
-          <!-- <p>{{ movie.overview }}</p> -->
         </li>
       </ul>
-
-
-
 
       <button (click)="hideBeer()" class="main-buttons">
         Find Craft Beer
