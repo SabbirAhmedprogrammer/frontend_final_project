@@ -214,6 +214,7 @@ select:focus {
   flex-direction: column;
   max-width: 80%;
   font-family: "Source Sans Pro", sans-serif;
+  margin-bottom: 15px;
 }
 
 .beer-name {
