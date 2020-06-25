@@ -15,7 +15,7 @@ export class DatenightService {
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
-    'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
+    'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
   todos: Checklist[] = [];
   constructor(private http: HttpClient) {}
   getActivities(keywords: string): any {
