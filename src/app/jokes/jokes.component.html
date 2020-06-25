@@ -1,10 +1,9 @@
 <div class="page-container">
   <app-header></app-header>
   <div class="main-buttons-container">
-
     <form
       #locationForm="ngForm"
-      (ngSubmit)="search(locationForm)"
+      (ngSubmit)="search(locationForm); getRestaurants()"
       class="location-form"
     >
       <label for="locationText" class="location-label"
@@ -23,7 +22,7 @@
     </form>
 
     <div class="just-buttons-container">
-      <button (click)="showRestaurants();" class="main-buttons">
+      <button (click)="showRestaurants()" class="main-buttons">
         Restaurants
       </button>
       <ul class="restaurants-container" *ngIf="showRestaurantList">
@@ -40,12 +39,17 @@
         Activities
       </button>
       <div *ngIf="showActivityForm" class="activities-section">
-
-      
-
-        <form #activityForm="ngForm" (change)="getActivities(activityForm)" class="activity-form-position">
-          <select name="activities" id="activities" class="select-input" ngModel="">
-
+        <form
+          #activityForm="ngForm"
+          (change)="getActivities(activityForm)"
+          class="activity-form-position"
+        >
+          <select
+            name="activities"
+            id="activities"
+            class="select-input"
+            ngModel=""
+          >
             <option value="">Select Activity</option>
             <option value="aquarium">Aquarium</option>
             <option value="beach">Beach</option>
@@ -79,15 +83,16 @@
             Jokes
           </button>
           <div *ngIf="showJokeForm" class="icebreaker-child">
-
-           
-
             <form #jokeForm="ngForm" (change)="getAllJokes(jokeForm)">
-              <select name="jokes" id="jokes" class="select-input" ngModel="adult">
-
+              <select
+                name="jokes"
+                id="jokes"
+                class="select-input"
+                ngModel="adult"
+              >
                 <option value="adult">Adult Joke?</option>
                 <option value="false">No</option>
-                <option value="true">Yes (NSFW!)</option>
+                <option value="true">Yes (rated R)</option>
               </select>
             </form>
             <div *ngIf="showJokeText" class="icebreaker-body border-boxshadow">
@@ -120,9 +125,15 @@
               class="icebreaker-body border-boxshadow"
             >
               <p class="icebreaker-p">Q: {{ randomTrivia?.question }}</p>
-              <button (click)="showAnswer()">Show Answer</button>
+              <button
+                *ngIf="showAnswerButton"
+                class="answer-button"
+                (click)="showAnswer()"
+              >
+                Show Answer
+              </button>
               <p *ngIf="showTriviaAnswer" class="icebreaker-p">
-                {{ randomTrivia?.answer }}
+                A: {{ randomTrivia?.answer }}
               </p>
               <button (click)="getAllTrivia(triviaForm)" class="buttons-text">
                 Get New Trivia
@@ -136,10 +147,16 @@
             Personal
           </button>
           <div *ngIf="showIntimateForm" class="icebreaker-child">
-
-          
-            <form #intimateForm="ngForm" (change)="getAllIntimate(intimateForm)">
-              <select name="intimate" id="intimate" ngModel="" class="select-input select-intimate">
+            <form
+              #intimateForm="ngForm"
+              (change)="getAllIntimate(intimateForm)"
+            >
+              <select
+                name="intimate"
+                id="intimate"
+                ngModel=""
+                class="select-input select-intimate"
+              >
                 <option value="">Intimacy Level</option>
                 <option value="level1">First Date</option>
                 <option value="level2">Getting Serious</option>

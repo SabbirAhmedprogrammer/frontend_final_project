@@ -9,14 +9,15 @@ import { NgForm } from '@angular/forms';
 })
 export class DatenightService {
   apiURL: string = environment.apiBaseUrl;
-  headerApiKey: string = '735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da';
-  // headerApiKey :  "735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da"
+  headerApiKey: string = '16a1528493msh29675e9b1228681p1ce0e8jsnb867c2c91495';
+  // headerApiKey :  "16a1528493msh29675e9b1228681p1ce0e8jsnb867c2c91495"
+  //old api key: 735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
   activitiesURL: string =
     'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates';
   todos: Checklist[] = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getActivities(keywords: string): any {
     return this.http.get(this.activitiesURL, {
       params: {
@@ -99,7 +100,7 @@ export class DatenightService {
   }
 
   deleteTask(index: number) {
-    this.todos.splice(index, 1)
+    this.todos.splice(index, 1);
   }
 
   updateTask(index: number) {

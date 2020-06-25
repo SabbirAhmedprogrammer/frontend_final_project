@@ -28,6 +28,7 @@ export class JokesComponent implements OnInit {
   showTriviaForm: boolean = false;
   showTriviaText: boolean = false;
   showTriviaAnswer: boolean = false;
+  showAnswerButton: boolean = true;
 
   restaurants: any;
   showRestaurantList: boolean = false;
@@ -121,6 +122,7 @@ export class JokesComponent implements OnInit {
   }
   showAnswer() {
     this.showTriviaAnswer = !this.showTriviaAnswer;
+    this.showAnswerButton = false;
   }
 
   getAllTrivia(form: NgForm) {
@@ -149,6 +151,7 @@ export class JokesComponent implements OnInit {
     });
     this.showTriviaText = true;
     this.showTriviaAnswer = false;
+    this.showAnswerButton = true;
   }
 
   getCurrentMovies() {

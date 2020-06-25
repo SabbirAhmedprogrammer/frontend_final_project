@@ -67,7 +67,6 @@ button {
   background-color: #00efff;
 }
 
-
 .location-form {
   display: flex;
   flex-direction: column;
@@ -134,6 +133,14 @@ button {
   box-shadow: 0.5px 6px 8px -3px black;
 }
 
+.answer-button {
+  margin-bottom: 7px;
+  border-radius: 10px;
+  background-color: white;
+  color: violet;
+  font-weight: 600;
+}
+
 input:focus,
 button:focus,
 select:focus {
@@ -173,7 +180,6 @@ select:focus {
 }
 
 .movies-container {
-
   display: flex;
   overflow-x: auto;
   max-width: -webkit-fill-available;
@@ -192,12 +198,15 @@ select:focus {
   width: 150px;
   border: solid black 3px;
   border-radius: 10px;
+  box-shadow: 2px 2px 7px 4px black;
+  margin: 0 5px;
 }
 
 .movie-title {
   background-color: rgb(239, 239, 239);
   text-align: center;
   border-radius: 10px;
+  box-shadow: 2px 2px 7px 4px black;
 }
 
 .beer-body {
