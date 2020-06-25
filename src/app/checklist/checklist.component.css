@@ -89,7 +89,6 @@ button:focus {
 }
 
 .add-btn:hover {
-  /* transform:translateY(5px); */
   transform: scale(1.02);
   box-shadow: 0.5px 6px 8px -3px black;
 }

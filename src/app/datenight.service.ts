@@ -9,8 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class DatenightService {
   apiURL: string = environment.apiBaseUrl;
-  headerApiKey: string = '';
-  //move into headerApiKey when needed for testing, to keep it in use longer
+  headerApiKey: string = '735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da';
   // headerApiKey :  "735e70a38dmsh51d35733da346c0p1ede8bjsn2a8b56b052da"
   headerHost: string = 'tripadvisor1.p.rapidapi.com';
   movieAPI: string = '9de00a3aded0074e4a583ad4a86ef37b';
@@ -32,7 +31,6 @@ export class DatenightService {
     });
   }
 
-  //backend to get the jokes from pgAdmin
   getAllJokes(): any {
     return this.http.get(`${this.apiURL}/jokes`);
   }
@@ -51,7 +49,6 @@ export class DatenightService {
       {
         params: {
           lang: 'en_US',
-          // location_id: "42139"
           location_id: locationID,
           limit: '15',
         },
@@ -68,7 +65,6 @@ export class DatenightService {
       'https://tripadvisor1.p.rapidapi.com/locations/search',
       {
         params: {
-          // query: "lansing michigan"
           query: locationString,
         },
         headers: {

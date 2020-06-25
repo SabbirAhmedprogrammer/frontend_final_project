@@ -67,12 +67,6 @@ button {
   background-color: #00efff;
 }
 
-/* example and testing are just to temporarily test these ideas**** */
-.example {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .location-form {
   display: flex;
@@ -160,8 +154,6 @@ select:focus {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* overflow-x: auto;
-  max-width: -webkit-fill-available; */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -181,24 +173,18 @@ select:focus {
 }
 
 .movies-container {
-  /* border:solid black 1px;
-    background-color:lightblue; */
+
   display: flex;
   overflow-x: auto;
   max-width: -webkit-fill-available;
   padding: 0;
   margin: 0;
-  /* flex-direction: column; */
 }
 
 .movie {
-  /* width: 20%;
-  /* border:1px solid blue; */
   display: flex;
   flex-direction: column;
   margin: 3px;
-  /* justify-content: center;
-  align-items: center; */
 }
 
 .movie-poster {
